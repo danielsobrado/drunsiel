@@ -4,7 +4,7 @@ module.exports = {
       resolve: '@elegantstack/gatsby-theme-flexiblog-personal',
       options: {
         // Add theme options here. Check documentation for available options.
-        siteUrl: process.env.URL || process.env.VERCEL_URL
+        siteUrl: 'https://www.drusniel.com/'
       }
     }
   ],
