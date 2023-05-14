@@ -11,18 +11,17 @@ module.exports = {
   // Customize your site metadata:
   siteMetadata: {
     //General Site Metadata
-    title: 'FlexiBlog Theme',
-    name: 'FlexiBlog',
-    description: 'My site description...',
-    address: 'New York, NY',
-    email: 'email@example.com',
-    phone: '+1 (888) 888-8888',
+    title: 'Drusniel',
+    name: 'Arcane Paradox A.I.',
+    description: 'Embark on a journey through worlds of magic and mystery with Arcane Paradox A.I.!',
+    address: 'Palawan, PH',
+    email: 'daniel@danielsobrado.com'
 
     //Site Social Media Links
     social: [
       {
         name: 'Github',
-        url: 'https://github.com/gatsbyjs'
+        url: 'https://github.com/danielsobrado'
       },
       {
         name: 'Twitter',
@@ -30,7 +29,7 @@ module.exports = {
       },
       {
         name: 'Instagram',
-        url: 'https://github.com/gatsbyjs'
+        url: 'https://www.instagram.com/drusniel/'
       }
     ],
 
