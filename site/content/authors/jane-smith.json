@@ -1,12 +1,12 @@
 {
   "name": "Jane Smith",
-  "title": "Creative Designer",
+  "title": "Fashion Designer",
   "description": "Sed commodo, est quis maximus fermentum, massa ipsum euismod neque, in varius risus tellus quis lacus. Sed ac bibendum odio.",
   "thumbnail": "jane-smith.png",
   "social": [
     {
-      "name": "Github",
-      "url": "https://github.com/github"
+      "name": "Instagram",
+      "url": "https://instagram.com/instagram"
     },
     {
       "name": "Twitter",
@@ -17,5 +17,5 @@
       "url": "https://example.com"
     }
   ],
-  "skills": ["UI/UX", "Javascript", "Graphic Design"]
+  "skills": ["Fashion Design", "Style Guide", "Makeup Artist"]
 }

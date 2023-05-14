@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [4.0.0](https://github.com/ElegantStack/gatsby-themes/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.10.0...@elegantstack/gatsby-starter-flexiblog-personal@4.0.0) (2023-03-11)
+## [4.0.0](https://github.com/ElegantStack/gatsby-themes/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.10.0...@elegantstack/gatsby-starter-flexiblog-beauty@4.0.0) (2023-03-11)
 
 
 ### Features
@@ -20,7 +20,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.10.0](https://github.com/ElegantStack/gatsby-themes/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.9.0...@elegantstack/gatsby-starter-flexiblog-personal@3.10.0) (2022-05-18)
+## [3.10.0](https://github.com/ElegantStack/gatsby-themes/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.9.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.10.0) (2022-05-18)
 
 
 ### Features
@@ -29,7 +29,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.9.0](https://github.com/ElegantStack/gatsby-themes/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.8.0...@elegantstack/gatsby-starter-flexiblog-personal@3.9.0) (2022-02-28)
+## [3.9.0](https://github.com/ElegantStack/gatsby-themes/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.8.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.9.0) (2022-02-28)
 
 
 ### Features
@@ -39,7 +39,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.8.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.7.0...@elegantstack/gatsby-starter-flexiblog-personal@3.8.0) (2021-11-15)
+## [3.8.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.7.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.8.0) (2021-11-15)
 
 
 ### Features
@@ -49,7 +49,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.7.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.6.0...@elegantstack/gatsby-starter-flexiblog-personal@3.7.0) (2021-09-07)
+## [3.7.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.6.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.7.0) (2021-09-07)
 
 
 ### Features
@@ -59,15 +59,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.6.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.5.0...@elegantstack/gatsby-starter-flexiblog-personal@3.6.0) (2021-08-19)
+## [3.6.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.5.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.6.0) (2021-08-19)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
-
-
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 
 
-## [3.5.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.4.0...@elegantstack/gatsby-starter-flexiblog-personal@3.5.0) (2021-08-01)
+
+
+## [3.5.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.4.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.5.0) (2021-08-01)
 
 
 ### Features
@@ -77,7 +77,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.4.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.3.2...@elegantstack/gatsby-starter-flexiblog-personal@3.4.0) (2021-06-17)
+## [3.4.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.3.2...@elegantstack/gatsby-starter-flexiblog-beauty@3.4.0) (2021-06-17)
 
 
 ### Features
@@ -87,24 +87,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-### [3.3.2](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.3.1...@elegantstack/gatsby-starter-flexiblog-personal@3.3.2) (2021-06-10)
+### [3.3.2](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.3.1...@elegantstack/gatsby-starter-flexiblog-beauty@3.3.2) (2021-06-10)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
-
-
-
-
-
-### [3.3.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.3.0...@elegantstack/gatsby-starter-flexiblog-personal@3.3.1) (2021-05-30)
-
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 
 
 
 
+### [3.3.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.3.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.3.1) (2021-05-30)
 
-## [3.3.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.2.1...@elegantstack/gatsby-starter-flexiblog-personal@3.3.0) (2021-05-19)
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
+
+
+
+
+
+
+## [3.3.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.2.1...@elegantstack/gatsby-starter-flexiblog-beauty@3.3.0) (2021-05-19)
 
 
 ### Features
@@ -114,16 +114,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-### [3.2.2](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.2.1...@elegantstack/gatsby-starter-flexiblog-personal@3.2.2) (2021-04-22)
+### [3.2.2](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.2.1...@elegantstack/gatsby-starter-flexiblog-beauty@3.2.2) (2021-04-22)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
-
-
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 
 
 
-### [3.2.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.2.0...@elegantstack/gatsby-starter-flexiblog-personal@3.2.1) (2021-03-30)
+
+
+### [3.2.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.2.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.2.1) (2021-03-30)
 
 
 ### Refactor
@@ -133,7 +133,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.2.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.1.0...@elegantstack/gatsby-starter-flexiblog-personal@3.2.0) (2021-03-27)
+## [3.2.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.1.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.2.0) (2021-03-27)
 
 
 ### Features
@@ -143,7 +143,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.1.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.0.1...@elegantstack/gatsby-starter-flexiblog-personal@3.1.0) (2021-03-20)
+## [3.1.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.0.1...@elegantstack/gatsby-starter-flexiblog-beauty@3.1.0) (2021-03-20)
 
 
 ### Features
@@ -153,11 +153,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [3.0.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@3.0.0...@elegantstack/gatsby-starter-flexiblog-personal@3.0.1) (2021-03-18)
+## [3.0.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@3.0.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.0.1) (2021-03-18)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
-## [3.0.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-personal@2.11.0...@elegantstack/gatsby-starter-flexiblog-personal@3.0.0) (2021-03-17)
+## [3.0.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/@elegantstack/gatsby-starter-flexiblog-beauty@2.11.0...@elegantstack/gatsby-starter-flexiblog-beauty@3.0.0) (2021-03-17)
 
 ### Features
 
@@ -204,6 +204,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 2.4.0 (2020-09-26)
 
+### Bug Fixes
+
+- remove unused author from beauty theme starter ([19e9604](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/commit/19e960432821987e58bf2ba6c34280bacdce9b0a))
+
 ## 2.3.1 (2020-08-20)
 
 ## 2.3.0 (2020-08-06)
@@ -235,7 +239,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.9.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.8.0...v2.9.0) (2020-12-31)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 ## [2.8.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.7.0...v2.8.0) (2020-12-15)
 
@@ -252,15 +256,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [2.6.2](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.6.1...v2.6.2) (2020-10-24)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 ## [2.6.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.6.0...v2.6.1) (2020-10-03)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 # [2.6.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.5.0...v2.6.0) (2020-10-03)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 # [2.5.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.4.0...v2.5.0) (2020-10-02)
 
@@ -270,31 +274,33 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.4.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.3.1...v2.4.0) (2020-09-26)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+### Bug Fixes
+
+- remove unused author from beauty theme starter ([19e9604](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/commit/19e960432821987e58bf2ba6c34280bacdce9b0a))
 
 ## [2.3.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.3.0...v2.3.1) (2020-08-20)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 # [2.3.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.2.3...v2.3.0) (2020-08-06)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 ## [2.2.2](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.2.1...v2.2.2) (2020-08-02)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 ## [2.2.1](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.2.0...v2.2.1) (2020-08-01)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 # [2.2.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.1.0...v2.2.0) (2020-07-28)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 # [2.1.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v2.0.0...v2.1.0) (2020-07-27)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 # [2.0.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v1.2.0...v2.0.0) (2020-07-26)
 
@@ -305,8 +311,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.2.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v1.1.0...v1.2.0) (2020-07-14)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty
 
 # [1.1.0](https://gitlab.com/alimoosavi15/gatsby-theme-flexiblog/compare/v1.0.0...v1.1.0) (2020-07-06)
 
-**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-personal
+**Note:** Version bump only for package @elegantstack/gatsby-starter-flexiblog-beauty

@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     {
-      resolve: '@elegantstack/gatsby-theme-flexiblog-personal',
+      resolve: '@elegantstack/gatsby-theme-flexiblog-beauty',
       options: {
         // Add theme options here. Check documentation for available options.
         siteUrl: process.env.URL || process.env.VERCEL_URL
@@ -41,8 +41,8 @@ module.exports = {
         slug: '/'
       },
       {
-        name: 'About Me',
-        slug: '/about'
+        name: 'Our Team',
+        slug: '/authors'
       },
       {
         name: 'Contact',
