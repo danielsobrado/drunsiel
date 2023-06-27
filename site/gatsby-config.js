@@ -21,7 +21,7 @@ module.exports = {
     description: 'Embark on a journey through worlds of magic and mystery with Arcane Paradox A.I.!',
     address: 'Palawan, PH',
     email: 'daniel@danielsobrado.com',
-    phone: '+1 (888) 888-8888',
+    phone: '',
 
     //Site Social Media Links
     social: [
