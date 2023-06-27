@@ -14,8 +14,12 @@
     },
     {
       "name": "Website",
-      "url": "https://example.com"
+      "url": "https://danielsobrado.com"
     }
   ],
-  "skills": ["Wizard", "AI enchanter", "Dark magic"]
+  "skills": [
+    "Wizard",
+    "AI enchanter",
+    "Dark magic"
+  ]
 }
