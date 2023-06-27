@@ -62,7 +62,7 @@ module.exports = {
     ],
 
     //Footer Menu Items (2 Sets)
-    footerMenu: [
+    footerMenu: [         
       {
         title: 'Quick Links',
         items: [
