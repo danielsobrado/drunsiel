@@ -11,12 +11,12 @@ const PageAuthors = props => {
 
   return (
     <Layout {...props}>
-      <Seo title='Our Team' />
+      <Seo title='Characters' />
       <Divider />
       <Stack effectProps={{ effect: 'fadeInDown' }}>
       <PageTitle
-          header='Team Members'
-          subheader='Interested in contributing and fostering partnerships? Reach out to us using the contact form. Always keen to explore new opportunities and expand our professional network.'
+          header='Main Characters'
+          subheader='Interested in contributing? Reach out to us using the contact form. Always keen to explore and expand.'
         />
       </Stack>
       <Stack>
