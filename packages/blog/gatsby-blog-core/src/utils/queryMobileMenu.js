@@ -16,7 +16,7 @@ module.exports = async ({ graphql }) => {
 
   return items
     ? {
-        title: 'Topics',
+        title: 'Regions',
         items
       }
     : null
