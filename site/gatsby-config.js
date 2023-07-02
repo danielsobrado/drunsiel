@@ -47,7 +47,7 @@ module.exports = {
         slug: '/'
       },
       {
-        name: 'Our Team',
+        name: 'Characters',
         slug: '/authors'
       },
       {
