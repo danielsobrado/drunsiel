@@ -3,9 +3,8 @@ module.exports = {
     {
       resolve: '@elegantstack/gatsby-theme-flexiblog-beauty',
       options: {
-        sources: {
-          local: true
-        }
+        // Add theme options here. Check documentation for available options.
+        siteUrl: process.env.URL || process.env.VERCEL_URL
       }
     },
   ],
@@ -15,7 +14,7 @@ module.exports = {
     title: 'Drusniel',
     name: 'Arcane Paradox A.I.',
     description: 'Embark on a journey through worlds of magic and mystery with Arcane Paradox A.I.!',
-    address: 'Palawan, PH',
+    address: 'Denpasar, Bali, 80263',
     email: 'daniel@danielsobrado.com',
     phone: '',
 
@@ -27,11 +26,11 @@ module.exports = {
       },
       {
         name: 'Twitter',
-        url: 'https://twitter.com/gatsbyjs'
+        url: 'https://twitter.com/JDanielSob'
       },
       {
         name: 'Instagram',
-        url: 'https://www.instagram.com/drusniel/'
+        url: 'https://www.instagram.com/arcane_paradox_ai/'
       }
     ],
 
