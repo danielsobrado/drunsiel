@@ -84,7 +84,7 @@ const Posts = ({
             aside
           />
           <Divider />
-          <Sponsor />
+          {/* <Sponsor /> */}
           <Divider />
           <Social />
           <Divider />

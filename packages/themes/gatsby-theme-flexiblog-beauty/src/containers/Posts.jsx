@@ -79,7 +79,7 @@ const Posts = ({
         <Sidebar pl={4}>
           <Categories categories={categories} />
           <Divider />
-          <Sponsor />
+          {/* <Sponsor /> */}
         </Sidebar>
       </Stack>
       <Divider />
