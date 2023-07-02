@@ -73,7 +73,7 @@ const Posts = ({
             columns={[1, 2, 1, 2]}
             variant={['horizontal-md', 'vertical']}
             omitMedia
-            title='Controversial News'
+            title='News from Astalon'
           />
         </Main>
         <Sidebar pl={4}>
@@ -92,7 +92,7 @@ const Posts = ({
             columns={[1, 2, 2, 4]}
             variant={['vertical-cover']}
             omitCategory
-            title='Our Top Pick This Month'
+            title='Our latest adventures'
             aside
           />
         </Box>
