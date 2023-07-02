@@ -12,7 +12,7 @@ const ContactInfo = () => {
       <Card variant='paper'>
         <Text variant='p'>Interested in working together?</Text>
         <Text variant='p'>
-          Suspendisse potenti. Mauris mollis diam tempus ut.
+          Drop an email! We will get back to you as soon as possible.
         </Text>
         {phone && (
           <Text>
