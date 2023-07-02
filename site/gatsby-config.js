@@ -7,6 +7,12 @@ module.exports = {
         siteUrl: process.env.URL || process.env.VERCEL_URL
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `content/assets/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
   ],
   // Customize your site metadata:
   siteMetadata: {
