@@ -73,7 +73,7 @@ const Posts = ({
             columns={[1, 2, 1, 2]}
             variant={['horizontal-md', 'vertical']}
             omitMedia
-            title='News from Astalon'
+            title='News from Astarion'
           />
         </Main>
         <Sidebar pl={4}>
