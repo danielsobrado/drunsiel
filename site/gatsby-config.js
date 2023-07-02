@@ -1,10 +1,6 @@
 module.exports = {
   plugins: [
     {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {}
-    },
-    {
       resolve: '@elegantstack/gatsby-theme-flexiblog-beauty',
       options: {
         sources: {
