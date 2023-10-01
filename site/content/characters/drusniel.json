@@ -1,7 +1,7 @@
 {
   "name": "Daniel Sobrado",
   "title": "Dark Elf",
-  "description": "Drusniel is a dark elf who has been studying the dark arts for many years. She is a master of the dark arts and has been known to use her powers for good and evil. She is a master of the dark arts and has been known to use her powers for good and evil. She is a master of the dark arts and has been known to use her powers for good and evil. She is a master of the dark arts and has been known to use her powers for good and evil. She is a master of the dark arts and has been known to use her powers for good and evil. She is a master of the dark arts and has been known to use her powers for good and evil. She is a master of the dark arts and has been known to use her powers for good and evil. He is a master of the dark arts and has been known to use his powers for good and evil.",
+  "description": "Drusniel, a young dark elf from a noble lineage, harbors a blend of naivety and an unyielding thirst for potent magic. His eyes, filled with youthful eagerness, contrast starkly against his dusky complexion. Every utterance and gesture exudes an earnest desire for power.",
   "thumbnail": "drusniel.png",
   "social": [
     {
@@ -19,7 +19,6 @@
   ],
   "skills": [
     "Wizard",
-    "AI enchanter",
     "Dark magic"
   ]
 }
