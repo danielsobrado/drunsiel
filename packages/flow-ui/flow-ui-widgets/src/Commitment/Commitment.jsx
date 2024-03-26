@@ -1,15 +1,29 @@
 import React from 'react'
 import { Card, Text } from 'theme-ui'
 import Section from '@components/Section'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
-const Commitment = props => (
-  <Section aside title='Say Hi!' {...props}>
-    <Card variant='paper'>
-      <Text variant='p'>
-      Hello there! We're thrilled to be connected with you and help bring your ideas to life.
-      </Text>
-    </Card>
-  </Section>
-)
+// translate title and text
+const Commitment = props => {
+  const { language } = useContext(LanguageContext);
+  let title = "Say Hi!";
+  if (language === "es") {
+    title = "¡Escríbeme!";
+  }
+  let text = "Hello there! We're thrilled to be connected with you and help bring your ideas to life.";
+  if (language === "es") {
+    text = "¡Hola! Estaré encantado de estar en contacto contigo y ayudarte a dar vida a tus ideas.";
+  }
+  return (
+    <Section aside title={title} {...props}>
+      <Card variant='paper'>
+        <Text variant='p'>
+          {text}
+        </Text>
+      </Card>
+    </Section>
+  )
+}
 
 export default Commitment

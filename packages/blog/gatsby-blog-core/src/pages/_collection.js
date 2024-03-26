@@ -3,47 +3,22 @@ const normalizeSlug = require('../utils/normalizeSlug')
 const queryMobileMenu = require('../utils/queryMobileMenu')
 
 module.exports = async (
-  { graphql, actions, reporter },
+  { actions, reporter },
   pluginOptions,
-  { template, slugField }
+  { template, slugField, data, mobileMenu }
 ) => {
   const { createPage } = actions
-  const {
-    collectionPostsPerPage,
-    pagingParam,
-    pageContextOptions
-  } = pluginOptions
+  const { collectionPostsPerPage, pagingParam, pageContextOptions } = pluginOptions
 
-  pageContextOptions.mobileMenu = await queryMobileMenu({ graphql })
+  pageContextOptions.mobileMenu = mobileMenu
 
-  const result = await graphql(`
-		{
-			allArticle (
-        filter: {
-          private: { ne: true }
-          draft: {ne: true}
-        }
-      ) {
-				group(field: ${slugField}, limit: ${collectionPostsPerPage}) {
-					fieldValue
-					pageInfo {
-						pageCount
-					}
-				}
-			}
-		}
-	`)
-
-  if (result.errors) {
-    reporter.panic(result.errors)
-  }
-
-  const { allArticle } = result.data
+  const { allArticle } = data
   const { group } = allArticle
 
   group.forEach(({ pageInfo, fieldValue: slug }) => {
     Array.from({ length: pageInfo.pageCount }, (_, i) => {
-      let path = i === 0 ? slug : urljoin(slug, pagingParam, `${i + 1}`)
+      let basePath = `/articles/${slug}`;
+      let path = i === 0 ? basePath : urljoin(basePath, pagingParam, `${i + 1}`);
       path = normalizeSlug(path)
 
       createPage({

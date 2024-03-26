@@ -4,6 +4,8 @@ import { Link } from 'gatsby'
 import { Button, Flex, Box } from 'theme-ui'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import normalizeSlug from '@components/utils/normalizeSlug'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const pagingParam = 'page'
 
@@ -37,8 +39,10 @@ const Pagination = ({
   basePath = '',
   slug = ''
 }) => {
+  const { language } = useContext(LanguageContext);
+
   if (!hasNextPage && !hasPreviousPage) return ''
-  let prefixPath = normalizeSlug(basePath + slug)
+  let prefixPath = normalizeSlug(`/${language}${basePath}${slug}`)
   let pagingPath = normalizeSlug(prefixPath + pagingParam)
 
   const prevLink =
@@ -51,17 +55,17 @@ const Pagination = ({
         {hasPreviousPage && (
           <Button variant='mute' as={Link} to={prevLink} sx={styles.button}>
             <FaChevronLeft />
-            Previous
+            {language === 'en' ? 'Previous' : 'Anterior'}
           </Button>
         )}
       </Box>
       <Box sx={{ ...styles.item, ...styles.number }}>
-        Page <strong>{currentPage}</strong> of <strong>{pageCount}</strong>
+        {language === 'en' ? 'Page' : 'Página'} <strong>{currentPage}</strong> {language === 'en' ? 'of' : 'de'} <strong>{pageCount}</strong>
       </Box>
       <Box sx={styles.item}>
         {hasNextPage && (
           <Button variant='dark' as={Link} to={nextLink} sx={styles.button}>
-            Next
+            {language === 'en' ? 'Next' : 'Siguiente'}
             <FaChevronRight />
           </Button>
         )}

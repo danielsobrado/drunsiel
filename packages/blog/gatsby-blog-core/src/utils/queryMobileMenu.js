@@ -1,23 +1,18 @@
-module.exports = async ({ graphql }) => {
-  if (!graphql) return
+module.exports = async ({ data, language }) => {
+  if (!data) return;
 
-  const result = await graphql(`
-    {
-      allArticleCategory {
-        nodes {
-          name
-          slug
-        }
-      }
-    }
-  `)
+  const items = data.allArticleCategory.nodes;
 
-  const items = result.data.allArticleCategory.nodes
+  const texts = {
+    en: {
+      title: 'Regions',
+    },
+    es: {
+      title: 'Regiones',
+    },
+  };
 
-  return items
-    ? {
-        title: 'Regions',
-        items
-      }
-    : null
-}
+  const { title } = texts[language];
+
+  return items ? { title, items } : null;
+};

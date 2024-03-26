@@ -1,7 +1,16 @@
-import { graphql } from 'gatsby'
-import PostsPage from '../containers/Posts'
+import React, { useContext } from 'react';
+import { graphql } from 'gatsby';
+import PostsPage from '../containers/Posts';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
-export default PostsPage
+const Posts = ({ data, ...props }) => {
+  const { language } = useContext(LanguageContext);
+  console.log('LanguageContext Posts: ' + language);
+
+  return <PostsPage data={data} {...props} />;
+};
+
+export default Posts;
 
 export const pageQuery = graphql`
   query PostsPageQuery(
@@ -12,11 +21,29 @@ export const pageQuery = graphql`
     $includeTimeToRead: Boolean!
     $imageQuality: Int!
   ) {
-    featuredPosts: allArticle(
+    posts: allArticle(
+      filter: { private: { ne: true }, draft: { ne: true } }
+      sort: { date: DESC }
+      limit: 1000
+    ) {
+      group(field: { category: { name: SELECT } }, limit: 10) {
+        categoryName: fieldValue
+        nodes {
+          ...ArticlePreview
+          ...ArticleThumbnailRegular
+          category {
+            namees
+          }
+          language
+        }
+      }
+    }
+    featuredPostsEN: allArticle(
       filter: {
         private: { ne: true }
         draft: { ne: true }
         featured: { eq: true }
+        language: { eq: "en" }
       }
       sort: { date: DESC }
       limit: 10
@@ -24,29 +51,53 @@ export const pageQuery = graphql`
       nodes {
         ...ArticlePreview
         ...ArticleThumbnailFeatured
+        language
       }
     }
-    recentPosts: allArticle(
-      filter: { private: { ne: true }, draft: { ne: true } }
+    featuredPostsES: allArticle(
+      filter: {
+        private: { ne: true }
+        draft: { ne: true }
+        featured: { eq: true }
+        language: { eq: "es" }
+      }
       sort: { date: DESC }
-      limit: 6
+      limit: 10
+    ) {
+      nodes {
+        ...ArticlePreview
+        ...ArticleThumbnailFeatured
+        language
+      }
+    }
+    recentPostsEN: allArticle(
+      filter: {
+        private: { ne: true }
+        draft: { ne: true }
+        language: { eq: "en" }
+      }
+      sort: { date: DESC }
+      limit: 10
     ) {
       nodes {
         ...ArticlePreview
         ...ArticleThumbnailRegular
+        language
       }
     }
-    posts: allArticle(
-      filter: { private: { ne: true }, draft: { ne: true } }
+    recentPostsES: allArticle(
+      filter: {
+        private: { ne: true }
+        draft: { ne: true }
+        language: { eq: "es" }
+      }
       sort: { date: DESC }
-      limit: 1000
-    ) @skip(if: $paginatePostsPage) {
-      group(field: { category: { name: SELECT } }, limit: 10) {
-        categoryName: fieldValue
-        nodes {
-          ...ArticlePreview
-          ...ArticleThumbnailRegular
-        }
+      limit: 10
+    ) {
+      nodes {
+        ...ArticlePreview
+        ...ArticleThumbnailRegular
+        language
       }
     }
     paginatedPosts: allArticle(
@@ -58,8 +109,9 @@ export const pageQuery = graphql`
       nodes {
         ...ArticlePreview
         ...ArticleThumbnailRegular
+        language
       }
       ...ArticlePagination
     }
   }
-`
+`;

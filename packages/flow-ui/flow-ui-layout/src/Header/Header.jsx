@@ -16,16 +16,16 @@ const styles = {
     zIndex: 10
   },
   logoContainer: {
-    flexBasis: [`full`, null, `1/3`]
+    flexBasis: [`full`, null, `1/4`]
   },
   searchContainer: {
-    flexBasis: [`auto`, null, `1/3`],
+    flexBasis: [`auto`, null, `1/4`],
     minWidth: `auto`,
     order: [3, null, `unset`],
     mx: 3
   },
   menuContainer: {
-    flexBasis: [`auto`, null, `1/3`],
+    flexBasis: [`auto`, null, `2/4`],
     minWidth: `auto`,
     order: [4, null, `unset`]
   },

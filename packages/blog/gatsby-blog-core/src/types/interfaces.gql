@@ -1,11 +1,11 @@
 ############################################
 ## Article
 ############################################
-
 interface Article implements Node {
   id: ID!
   title: String!
   slug: String!
+  language: String
   #proxy is a workaround for gatsby issue #21476
   date: Date @proxy(from: "date") @dateformat
   featured: Boolean
@@ -28,12 +28,13 @@ interface Article implements Node {
 ############################################
 ## Category
 ############################################
-
 interface ArticleCategory implements Node {
   id: ID!
   name: String
+  namees: String
   slug: String
   description: String
+  descriptiones: String
   color: String
   icon: String
 }
@@ -41,7 +42,6 @@ interface ArticleCategory implements Node {
 ############################################
 ## Author
 ############################################
-
 interface ArticleAuthor implements Node {
   id: ID!
   name: String!
@@ -61,9 +61,9 @@ type SocialMedia {
 ############################################
 ## Tag
 ############################################
-
 type ArticleTag implements Node {
   id: ID!
   name: String!
   slug: String! @makeSlug
+  language: String
 }

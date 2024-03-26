@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import { Box, Badge, css } from 'theme-ui'
 import rv from '@components/utils/buildResponsiveVariant'
 import getReadableColor from '@components/utils/getReadableColor'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
   badge: {
@@ -10,13 +12,15 @@ const styles = {
   }
 }
 
-const CardBodyCategory = ({ variant, category, omitCategory }) =>
-  !omitCategory && category && category.slug ? (
+const CardBodyCategory = ({ variant, category, omitCategory }) => {
+  const { language } = useContext(LanguageContext);
+
+  return !omitCategory && category && category.slug ? (
     <Box css={css(styles.badge)} sx={{ variant: rv(variant, 'category') }}>
       <Badge
         variant='tag'
         as={Link}
-        to={category.slug}
+        to={`/${language}${category.slug}`}
         sx={
           category.color && {
             bg: category.color,
@@ -27,6 +31,7 @@ const CardBodyCategory = ({ variant, category, omitCategory }) =>
         {category.name}
       </Badge>
     </Box>
-  ) : null
+  ) : null;
+}
 
 export default CardBodyCategory

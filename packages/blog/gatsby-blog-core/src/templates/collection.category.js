@@ -11,6 +11,7 @@ export const pageQuery = graphql`
     $includeExcerpt: Boolean!
     $includeTimeToRead: Boolean!
     $imageQuality: Int!
+    $language: String!
   ) {
     collectionInfo: articleCategory(slug: { eq: $slug }) {
       id
@@ -23,6 +24,7 @@ export const pageQuery = graphql`
         private: { ne: true }
         draft: { ne: true }
         category: { slug: { eq: $slug } }
+        language: { eq: $language }
       }
       sort: { date: DESC }
       limit: $limit

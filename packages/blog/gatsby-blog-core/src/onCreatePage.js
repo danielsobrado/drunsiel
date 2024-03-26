@@ -14,7 +14,7 @@ module.exports = async ({ graphql, page, actions }, pluginOptions) => {
     ...page,
     context: {
       ...page.context,
-      ...pageContextOptions
+      ...pageContextOptions,
     }
   })
 }

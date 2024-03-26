@@ -5,6 +5,7 @@ export const query = graphql`
     id
     title
     slug
+    language
     link
     excerpt
     tableOfContents(maxDepth: 2) @include(if: $includeTableOfContents)

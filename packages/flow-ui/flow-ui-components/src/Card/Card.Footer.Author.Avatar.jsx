@@ -3,9 +3,12 @@ import { Link as GLink } from 'gatsby'
 import { Link, useThemeUI, get } from 'theme-ui'
 import AvatarSimple from '@components/AvatarSimple'
 import rv from '@components/utils/buildResponsiveVariant'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const CardFooterAuthorAvatar = ({ variant, omitAuthor, author }) => {
   const context = useThemeUI()
+  const { language } = useContext(LanguageContext);
 
   if (omitAuthor) return null
 
@@ -24,7 +27,7 @@ const CardFooterAuthorAvatar = ({ variant, omitAuthor, author }) => {
     author && author.thumbnail ? (
       <Link
         as={GLink}
-        to={author.slug}
+        to={`/${language}${author.slug}`}
         aria-label={author.name}
         sx={{ variant: responsiveVariant }}
       >

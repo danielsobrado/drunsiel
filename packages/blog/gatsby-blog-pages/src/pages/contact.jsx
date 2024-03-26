@@ -6,28 +6,43 @@ import Seo from '@widgets/Seo'
 import ContactForm from '@widgets/ContactForm'
 import ContactInfo from '@widgets/ContactInfo'
 import Commitment from '@widgets/Commitment'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
-const PageContact = props => (
-  <Layout {...props}>
-    <Seo title='Contact' />
-    <Divider />
-    <Stack>
-      <Main>
-      <PageTitle
-          header="Let's Connect"
-          subheader="Interested in hiring us for freelance work?, looking for a cooperative partnership?, 
-          or just wanting to engage in insightful discussion? We're always open for conversation - let's connect!"
-        />
-        <Divider />
-        <ContactForm />
-      </Main>
-      <Sidebar>
-        <Commitment />
-        <Divider />
-        <ContactInfo />
-      </Sidebar>
-    </Stack>
-  </Layout>
-)
+const PageContact = props => {
+  const { language } = useContext(LanguageContext);
+  
+  let header = "Let's Connect";
+  if (language === "es") {
+    header = "Conectemos";
+  }
+  
+  let subheader = "Interested in hiring us for freelance work?, looking for a cooperative partnership?, or just wanting to engage in insightful discussion? We're always open for conversation - let's connect!";
+  if (language === "es") {
+    subheader = "¿Interesado en contratarme para trabajo freelance?, ¿Buscas una asociación cooperativa?, ¿O simplemente deseas participar en una discusión interesante? Siempre estoy abierto a la conversación - ¡Conectemos!";
+  }
+
+  return (
+    <Layout {...props}>
+      <Seo title='Contact' />
+      <Divider />
+      <Stack>
+        <Main>
+        <PageTitle
+            header={header}
+            subheader={subheader}
+          />
+          <Divider />
+          <ContactForm />
+        </Main>
+        <Sidebar>
+          <Commitment />
+          <Divider />
+          <ContactInfo />
+        </Sidebar>
+      </Stack>
+    </Layout>
+  )
+}
 
 export default PageContact

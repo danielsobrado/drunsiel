@@ -54,6 +54,7 @@ module.exports = {
         name: 'Contact',
         slug: '/contact'
       }
+
     ],
 
     //Footer Menu Items (2 Sets)

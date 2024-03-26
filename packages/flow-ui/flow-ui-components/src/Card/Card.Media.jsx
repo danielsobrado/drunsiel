@@ -5,6 +5,8 @@ import rv from '@components/utils/buildResponsiveVariant'
 import getImageVariant from '@components/utils/getImageVariant'
 import CardMediaIcon from './Card.Media.Icon'
 import CardMediaImage from './Card.Media.Image'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const DEFAULT_IMAGE_VARIANT = 'vertical'
 
@@ -27,6 +29,7 @@ const CardMedia = ({
   ...props
 }) => {
   const context = useThemeUI()
+  const { language } = useContext(LanguageContext);
 
   if (omitMedia) return null
 

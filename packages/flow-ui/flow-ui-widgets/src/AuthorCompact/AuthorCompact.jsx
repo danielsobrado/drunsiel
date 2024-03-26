@@ -5,6 +5,8 @@ import Navigation from '@components/Navigation'
 import Section from '@components/Section'
 import Avatar from '@components/Avatar'
 import attachSocialIcons from '@helpers/attachSocialIcons'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
   wrapper: {
@@ -18,8 +20,9 @@ const styles = {
   }
 }
 
-const AuthorCompact = ({ author, omitSocial, ...props }) => {
+const AuthorCompact = ({ author, omitSocial, locale, ...props }) => {
   if (!author) return ''
+  const { language } = useContext(LanguageContext);
 
   return (
     <Section aside title='The Author' {...props}>
@@ -27,7 +30,7 @@ const AuthorCompact = ({ author, omitSocial, ...props }) => {
         <Box sx={styles.wrapper}>
           {author.thumbnail && (
             <Box sx={styles.avatarWrapper}>
-              <Link as={GLink} to={author.slug} aria-label={author.name}>
+              <Link as={GLink} to={`/${language}${author.slug}`} aria-label={author.name}>
                 <Avatar
                   avatar={author.thumbnail}
                   alt={author.name}
@@ -36,7 +39,7 @@ const AuthorCompact = ({ author, omitSocial, ...props }) => {
               </Link>
             </Box>
           )}
-          <Link as={GLink} to={author.slug}>
+          <Link as={GLink} to={`/${language}${author.slug}`}>
             <Heading variant='h3'>{author.name}</Heading>
           </Link>
           <Heading variant='h4' sx={styles.title}>

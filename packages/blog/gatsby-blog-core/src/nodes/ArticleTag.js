@@ -7,10 +7,7 @@ module.exports = (
   const { type } = node.internal
 
   const ARTICLE_TYPES = [
-    'Mdx',
-    'ContentfulArticle',
-    'SanityArticle',
-    'STRAPI_ARTICLE'
+    'Mdx'
   ]
   const newNodeType = 'ArticleTag'
 
@@ -35,6 +32,7 @@ module.exports = (
       const newNode = {
         id,
         name: tag,
+        // language: node.language,
         parent: node.id,
         internal: {
           type: newNodeType

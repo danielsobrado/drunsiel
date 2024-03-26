@@ -5,6 +5,7 @@ export const query = graphql`
     id
     title
     slug
+    language
     link
     excerpt @include(if: $includeExcerpt)
     timeToRead @include(if: $includeTimeToRead)

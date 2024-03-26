@@ -30,10 +30,12 @@ const NavigationItem = ({
   Icon,
   color,
   variant,
-  iconOnly
+  iconOnly,
+  onClick
 }) => {
   let linkProps = {
-    sx: { variant: iconOnly ? 'icon' : variant }
+    sx: { variant: iconOnly ? 'icon' : variant },
+    onClick: onClick,
   }
 
   //External link
@@ -50,8 +52,9 @@ const NavigationItem = ({
   if (slug) {
     linkProps = {
       ...linkProps,
-      as: Link,
-      to: slug
+      as: slug === '#' ? 'a' : Link, 
+      to: slug,
+      href: slug, 
     }
   }
 

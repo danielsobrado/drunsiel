@@ -10,11 +10,13 @@ const postQuery = `{
         id
 				title
         slug
+        language
         link
 				excerpt(pruneLength: 5000)
 				category {
 					name
 					slug
+          language
 				}
         internal {
           contentDigest

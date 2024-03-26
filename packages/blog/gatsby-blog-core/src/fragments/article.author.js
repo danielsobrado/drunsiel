@@ -32,40 +32,6 @@ export const query = graphql`
           quality: 80
         )
       }
-      ... on ContentfulAsset {
-        ContentfulAsset_small: gatsbyImageData(
-          width: 48
-          height: 48
-          layout: FIXED
-          cropFocus: TOP
-          resizingBehavior: THUMB
-          quality: 75
-        )
-        ContentfulAsset_regular: gatsbyImageData(
-          width: 150
-          height: 150
-          layout: FIXED
-          cropFocus: TOP
-          resizingBehavior: THUMB
-          quality: 80
-        )
-      }
-      ... on SanityImageAsset {
-        SanityImageAsset_small: gatsbyImageData(
-          width: 48
-          height: 48
-          layout: FIXED
-          placeholder: NONE
-          fit: CLIP
-        )
-        SanityImageAsset_regular: gatsbyImageData(
-          width: 150
-          height: 150
-          layout: FIXED
-          placeholder: NONE
-          fit: CLIP
-        )
-      }
     }
   }
 `

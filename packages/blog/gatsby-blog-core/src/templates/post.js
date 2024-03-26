@@ -6,6 +6,7 @@ export default PostPage
 export const pageQuery = graphql`
   query PostPageQuery(
     $id: String!
+    $language: String! = "en"
     $previousId: String
     $nextId: String
     $categoryId: String
@@ -26,6 +27,7 @@ export const pageQuery = graphql`
         draft: { ne: true }
         tags: { elemMatch: { id: { in: $tagsIds } } }
         category: { id: { eq: $categoryId } }
+        language: { eq: $language }
         id: { ne: $id }
       }
       sort: { date: DESC }
@@ -42,6 +44,7 @@ export const pageQuery = graphql`
         draft: { ne: true }
         tags: { elemMatch: { id: { in: $tagsIds } } }
         id: { ne: $id }
+        language: { eq: $language }
       }
       sort: { date: DESC }
       limit: 6
@@ -56,6 +59,7 @@ export const pageQuery = graphql`
         private: { ne: true }
         draft: { ne: true }
         category: { id: { eq: $categoryId } }
+        language: { eq: $language }
         id: { ne: $id }
       }
       sort: { date: DESC }
@@ -66,12 +70,12 @@ export const pageQuery = graphql`
         ...ArticleThumbnailRegular
       }
     }
-    previous: article(id: { eq: $previousId }) {
+    previous: article(id: { eq: $previousId }, language: { eq: $language }) {
       id
       slug
       title
     }
-    next: article(id: { eq: $nextId }) {
+    next: article(id: { eq: $nextId }, language: { eq: $language }) {
       id
       slug
       title

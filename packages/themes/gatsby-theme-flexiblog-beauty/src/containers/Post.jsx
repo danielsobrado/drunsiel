@@ -16,17 +16,31 @@ import {
   PostTagsShare,
   PostFooter
 } from '@widgets/Post'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const Post = ({
   data: { post, tagCategoryPosts, tagPosts, categoryPosts, previous, next },
   ...props
 }) => {
+  const { language } = useContext(LanguageContext);
   const relatedPosts = [
     ...(tagCategoryPosts ? tagCategoryPosts.nodes : []),
     ...(tagPosts ? tagPosts.nodes : []),
     ...(categoryPosts ? categoryPosts.nodes : [])
   ]
   const { pageContext: { services = {}, siteUrl } = {} } = props
+
+  const texts = {
+    en: {
+      relatedPostsTitle: 'Related Posts',
+    },
+    es: {
+      relatedPostsTitle: 'Relacionados:',
+    },
+  };
+
+  const { relatedPostsTitle } = texts[language];
 
   return (
     <Layout {...props}>
@@ -60,7 +74,7 @@ const Post = ({
             )}
             {post.category && (
               <CardList
-                title='Related Posts'
+                title={relatedPostsTitle}
                 nodes={relatedPosts}
                 variant='horizontal-aside'
                 limit={6}

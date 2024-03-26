@@ -101,28 +101,28 @@ const Seo = ({
     scripts.push(articleJsonLd)
   }
 
-  // Breadcrumb
-  if (title && category) {
-    const breadcrumbJsonLd = helmetJsonLdProp({
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: site.name,
-          item: siteUrl
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: category.name,
-          item: `${siteUrl}${category.slug}`
-        }
-      ]
-    })
-    scripts.push(breadcrumbJsonLd)
-  }
+// Breadcrumb
+if (title && category) {
+  const breadcrumbJsonLd = helmetJsonLdProp({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: site.name,
+        item: siteUrl
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: category.name,
+        item: `${siteUrl}/${locale}${category.slug}`
+      }
+    ]
+  })
+  scripts.push(breadcrumbJsonLd)
+}
 
   return (
     <Helmet

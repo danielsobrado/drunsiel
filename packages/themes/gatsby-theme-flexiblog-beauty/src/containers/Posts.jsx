@@ -1,14 +1,16 @@
-import React from 'react'
-import { Box, Container } from 'theme-ui'
-import { Layout, Stack, Main, Sidebar, Hero } from '@layout'
-import CardList from '@components/CardList'
-import Divider from '@components/Divider'
-import MemphisPattern from '@components/MemphisPattern'
-import Seo from '@widgets/Seo'
-import NewsletterExpanded from '@widgets/NewsletterExpanded'
-import Sponsor from '@widgets/Sponsor'
-import Categories from '@widgets/Categories'
-import { useBlogCategories } from '@helpers-blog'
+import React from 'react';
+import { Box, Container } from 'theme-ui';
+import { Layout, Stack, Main, Sidebar, Hero } from '@layout';
+import CardList from '@components/CardList';
+import Divider from '@components/Divider';
+import MemphisPattern from '@components/MemphisPattern';
+import Seo from '@widgets/Seo';
+import NewsletterExpanded from '@widgets/NewsletterExpanded';
+import Sponsor from '@widgets/Sponsor';
+import Categories from '@widgets/Categories';
+import { useBlogCategories } from '@helpers-blog';
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
   heroThumbsContainer: {
@@ -16,30 +18,74 @@ const styles = {
     top: `50%`,
     position: `absolute`,
     transform: `translate(-50%, -50%)`,
-    display: [`none`, null, null, `block`]
+    display: [`none`, null, null, `block`],
   },
   heroThumbsInner: {
     width: `1/3`,
-    ml: `auto`
-  }
-}
+    ml: `auto`,
+  },
+};
 
-const Posts = ({
-  data: { posts = {}, featuredPosts = {}, recentPosts = {} },
-  ...props
-}) => {
-  const { pageContext: { services = {} } = {} } = props
-  const categories = useBlogCategories()
-  const sliderRef = React.useRef()
+const Posts = ({ data, ...props }) => {
+  const { language } = useContext(LanguageContext);
+  console.log('LanguageContext Posts: ' + language);
+
+  const featuredPosts1 = language === 'en' ? data.featuredPostsEN : data.featuredPostsES;
+  const recentPosts1 = language === 'en' ? data.recentPostsEN : data.recentPostsES;
+
+  const texts = {
+    en: {
+      titleLanguage: 'News from Astarion',
+      OurLatestAdventures: 'Our latest adventures',
+      TrendingNow: 'Trending Now',
+    },
+    es: {
+      titleLanguage: 'Noticias de Astarion',
+      OurLatestAdventures: 'Nuestras últimas aventuras',
+      TrendingNow: 'Tendencias ahora',
+    },
+  };
+
+  const { titleLanguage, OurLatestAdventures, TrendingNow } = texts[language];
+
+  const { pageContext: { services = {} } = {} } = props;
+  const categories = useBlogCategories();
+  const sliderRef = React.useRef();
+
+  console.log('OurLatestAdventures:', OurLatestAdventures);
+  console.log('titleLanguage:', titleLanguage);
+
+  // Filter featured posts by language
+  const filteredFeaturedPostsNodes = featuredPosts1.nodes.filter(
+    (post) => post.language === language
+  );
+
+  // Filter recent posts by language
+  const filteredRecentPostsNodes = recentPosts1.nodes.filter(
+    (post) => post.language === language
+  );
+
+  // Filter posts.group by language
+  const filteredPostsGroup = data.posts.group
+    .map((group) => ({
+      ...group,
+      nodes: group.nodes.filter((post) => post.language === language),
+    }))
+    .filter((group) => group.nodes.length > 0);
+
+  console.log('Language:', language);
+  console.log('filtered Featured Posts:', filteredFeaturedPostsNodes);
+  console.log('filtered Recent Posts:', filteredRecentPostsNodes);
+  console.log('filtered Posts Groups:', filteredPostsGroup);
 
   return (
     <Layout {...props}>
-      <Seo title='Home' />
+      <Seo title={language === 'en' ? 'Home' : 'Inicio'} />
       <Hero full sx={{ position: `relative` }}>
         <CardList
-          nodes={featuredPosts.nodes}
+          nodes={filteredFeaturedPostsNodes}
           limit={3}
-          variant='horizontal-cover-hero'
+          variant="horizontal-cover-hero"
           omitFooter
           slider
           autoPlay
@@ -47,18 +93,18 @@ const Posts = ({
           dots={false}
           arrows={false}
           ref={sliderRef}
-          loading='eager'
+          loading="eager"
         />
         <Container sx={styles.heroThumbsContainer}>
           <Box sx={styles.heroThumbsInner}>
             <CardList
-              nodes={featuredPosts.nodes}
+              nodes={filteredFeaturedPostsNodes}
               limit={3}
-              variant='horizontal-aside'
-              imageVariant='hero'
+              variant="horizontal-aside"
+              imageVariant="hero"
               omitCategory
               asNavFor={sliderRef}
-              loading='eager'
+              loading="eager"
             />
           </Box>
         </Container>
@@ -67,13 +113,13 @@ const Posts = ({
       <Stack>
         <Main>
           <CardList
-            nodes={featuredPosts.nodes}
+            nodes={filteredFeaturedPostsNodes}
             limit={4}
             skip={3}
             columns={[1, 2, 1, 2]}
             variant={['horizontal-md', 'vertical']}
             omitMedia
-            title='News from Astarion'
+            title={titleLanguage}
           />
         </Main>
         <Sidebar pl={4}>
@@ -86,26 +132,27 @@ const Posts = ({
       <Hero wide sx={{ bg: `contentBg`, pb: [3, 5], pt: [4, 5] }}>
         <Box sx={{ position: `relative`, zIndex: 2 }}>
           <CardList
-            nodes={featuredPosts.nodes}
+            key={language}
+            nodes={filteredFeaturedPostsNodes}
             limit={4}
             skip={3}
             columns={[1, 2, 2, 4]}
             variant={['vertical-cover']}
             omitCategory
-            title='Our latest adventures'
+            title={OurLatestAdventures}
             aside
           />
         </Box>
         <MemphisPattern />
       </Hero>
       <Divider />
-      {posts.group.length &&
-        posts.group.map((group, index) => (
+      {filteredPostsGroup.length &&
+        filteredPostsGroup.map((group, index) => (
           <React.Fragment key={`${group.categoryName}.list`}>
             {index % 2 === 0 ? (
               <Stack
                 title={group.categoryName}
-                titleLink={group.nodes[0].category.slug}
+                titleLink={`/${language}${group.nodes[0].category.slug}`}
               >
                 <Main>
                   <CardList
@@ -121,7 +168,7 @@ const Posts = ({
             ) : (
               <Stack
                 title={group.categoryName}
-                titleLink={group.nodes[0].category.slug}
+                titleLink={`/${language}${group.nodes[0].category.slug}`}
               >
                 <Main>
                   <CardList
@@ -132,7 +179,7 @@ const Posts = ({
                       'horizontal-md',
                       'horizontal',
                       'horizontal',
-                      'vertical'
+                      'vertical',
                     ]}
                     omitCategory
                     omitExcerpt
@@ -157,7 +204,7 @@ const Posts = ({
                       'horizontal-md',
                       'horizontal',
                       'horizontal',
-                      'vertical'
+                      'vertical',
                     ]}
                     omitCategory
                     omitExcerpt
@@ -171,7 +218,7 @@ const Posts = ({
                 <Hero wide sx={{ pb: [3, 5], pt: [4, 5] }}>
                   <Box sx={{ position: `relative`, zIndex: 2 }}>
                     <CardList
-                      nodes={featuredPosts.nodes}
+                      nodes={filteredFeaturedPostsNodes}
                       limit={2}
                       skip={7}
                       columns={[1, 1, 1, 2]}
@@ -179,9 +226,9 @@ const Posts = ({
                         'horizontal-md',
                         'horizontal',
                         'horizontal',
-                        'horizontal-lg'
+                        'horizontal-lg',
                       ]}
-                      title='Trending Now'
+                      title={TrendingNow}
                       aside
                     />
                   </Box>
@@ -189,7 +236,7 @@ const Posts = ({
                 </Hero>
               </>
             )}
-            {index !== posts.group.length - 1 && <Divider />}
+            {index !== filteredPostsGroup.length - 1 && <Divider />}
           </React.Fragment>
         ))}
       <Stack>
@@ -203,7 +250,7 @@ const Posts = ({
         </Main>
       </Stack>
     </Layout>
-  )
-}
+  );
+};
 
-export default Posts
+export default Posts;

@@ -7,37 +7,25 @@ import reduceArray from '@components/utils/reduceArray'
 import Section from '@components/Section'
 import CardListSlider from './CardList.Slider'
 import Card from '@components/Card'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const SLIDER_VARIANT_GROUP = 'lists.cards.slider'
 const FIXED_VARIANT_GROUP = 'lists.cards.fixed'
 
 const CardList = React.forwardRef((props, ref) => {
-  const {
-    nodes,
-    variant,
-    title,
-    withTitleLink,
-    limit,
-    skip,
-    distinct,
-    slider,
-    aside,
-    asNavFor,
-    loading,
-    ...rest
-  } = props
+  const { nodes, variant, title, withTitleLink, limit, skip, distinct, slider, aside, asNavFor, loading, ...rest } = props
+  const { language } = useContext(LanguageContext);
 
   const reducedNodes = reduceArray(nodes, { distinct, limit, skip })
+
   if (!reducedNodes || !reducedNodes.length) return null
 
   //Section title link for viewing more posts from same category
-  const titleLink = withTitleLink
-    ? reducedNodes[0].category && reducedNodes[0].category.slug
-    : ''
+  const titleLink = withTitleLink ? reducedNodes[0].category && `/${language}${reducedNodes[0].category.slug}` : '';
 
   //Unique key for section
-  const sectionKey =
-    title && `${hashCode(reducedNodes.map(node => node.id).join())}`
+  const sectionKey = title && `${hashCode(reducedNodes.map(node => node.id).join())}`
 
   //Build responsive variant for card list
   const cardListVariant = buildResponsiveVariant(
@@ -63,6 +51,9 @@ const CardList = React.forwardRef((props, ref) => {
       loading={props.fade ? (index === 0 ? loading : undefined) : loading}
       {...node}
       {...rest}
+      authorLink={node.author && `/${language}/author/${node.author.slug}`}
+      categoryLink={node.category && `/${language}${node.category.slug}`}
+      tagsLink={node.tags && node.tags.map((tag) => `/${language}/tag/${tag.slug}`)}
     />
   ))
 
@@ -70,11 +61,7 @@ const CardList = React.forwardRef((props, ref) => {
   const CardList = () => (
     <Box sx={{ variant: cardListVariant }}>
       {slider ? (
-        <CardListSlider
-          ref={ref}
-          // beforeChange={index => changeSlide(index)}
-          {...rest}
-        >
+        <CardListSlider ref={ref} {...rest}>
           {cards}
         </CardListSlider>
       ) : (

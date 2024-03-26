@@ -3,6 +3,8 @@ import { Box } from 'theme-ui'
 import { FaArchive } from 'react-icons/fa'
 import IconButton from '@components/IconButton'
 import Section from '@components/Section'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
   horizontal: {
@@ -20,26 +22,39 @@ const styles = {
   }
 }
 
-const Categories = ({ variant, categories, ...props }) => (
-  <Section aside={variant === 'vertical'} title='Regions' {...props}>
-    <Box sx={styles[variant]}>
-      {categories &&
-        categories.map(({ id, name, slug, totalCount, icon }) => {
+const Categories = ({ variant, categories, ...props }) => {
+  const { language } = useContext(LanguageContext);
+
+  const texts = {
+    en: {
+      title: 'Regions',
+    },
+    es: {
+      title: 'Regiones',
+    },
+  };
+
+  const { title } = texts[language];
+
+  return (
+    <Section aside={variant === 'vertical'} title={title} {...props}>
+      <Box sx={styles[variant]}>
+        {categories && categories.map(({ id, name, slug, totalCount, icon }) => {
           const buttonProps = {
             key: id,
             name,
             number: totalCount,
-            to: slug,
+            to: `/${language}${slug}`,
             iconPath: icon,
             Icon: !icon && FaArchive,
-            variant
-          }
-
-          return totalCount !== 0 && <IconButton {...buttonProps} />
+            variant,
+          };
+          return totalCount !== 0 && <IconButton {...buttonProps} />;
         })}
-    </Box>
-  </Section>
-)
+      </Box>
+    </Section>
+  );
+};
 
 export default Categories
 

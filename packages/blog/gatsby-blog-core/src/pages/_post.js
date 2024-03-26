@@ -3,12 +3,14 @@ const queryMobileMenu = require('../utils/queryMobileMenu')
 module.exports = async (
   { graphql, actions, reporter },
   pluginOptions,
-  { template }
+  { template, mobileMenu }
 ) => {
   const { createPage } = actions
   const { pageContextOptions } = pluginOptions
 
-  pageContextOptions.mobileMenu = await queryMobileMenu({ graphql })
+  pageContextOptions.mobileMenu = mobileMenu
+
+  console.log('pluginOptions', pluginOptions)
 
   const result = await graphql(`
     {
@@ -21,6 +23,7 @@ module.exports = async (
           node {
             id
             slug
+            language
             link
             category {
               id
@@ -42,7 +45,7 @@ module.exports = async (
   const posts = allArticle.edges
 
   posts.forEach(({ node }, index) => {
-    const { id, slug, category, tags, link } = node
+    const { id, slug, language, category, tags, link } = node
 
     if (link) return //skip creating pages for nodes linking to external sites
 
@@ -53,13 +56,16 @@ module.exports = async (
     const categoryId = category && category.id
     const tagsIds = (tags && tags.map(tag => tag && tag.id)) || []
     const hasTags = tagsIds.length > 0
+    // slug = `${language}/${slug}`
 
     createPage({
       path: slug,
+      language: language, 
       component: template,
       context: {
         id,
         categoryId,
+        language, 
         tagsIds,
         hasTags,
         previousId: previous ? previous.node.id : undefined,

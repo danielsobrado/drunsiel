@@ -2,45 +2,195 @@ const withDefaults = require('./utils/default.options')
 const createPostsPage = require('./pages/_posts')
 const createPostPage = require('./pages/_post')
 const createCollectionPage = require('./pages/_collection')
+const path = require('path')
 
-module.exports = async (helpers, pluginOptions) => {
+module.exports = async ({ actions, graphql, reporter }, pluginOptions) => {
   pluginOptions = withDefaults(pluginOptions)
+
+  const { data: mobileMenuData } = await graphql(`
+    {
+      allArticleCategory {
+        nodes {
+          name
+          slug
+        }
+      }
+    }
+  `)
+
+  const mobileMenu = await require('./utils/queryMobileMenu')({ data: mobileMenuData, language: 'en' });
 
   /**
    * Posts (home) page
    */
-  await createPostsPage(helpers, pluginOptions, {
-    template: require.resolve('./templates/posts')
+  await createPostsPage({ actions, graphql, reporter }, pluginOptions, {
+    template: require.resolve('./templates/posts'),
+    mobileMenu,
   })
 
   /**
    * Single post pages
    */
-  await createPostPage(helpers, pluginOptions, {
-    template: require.resolve('./templates/post')
+  await createPostPage({ actions, graphql, reporter }, pluginOptions, {
+    template: require.resolve('./templates/post'),
+    mobileMenu,
   })
+
+  const languages = ['en', 'es']
 
   /**
    * Category posts pages
    */
-  await createCollectionPage(helpers, pluginOptions, {
-    template: require.resolve('./templates/collection.category'),
-    slugField: '{category: {slug: SELECT}}'
+  const { data: categoryData } = await graphql(`
+    query {
+      allArticle {
+        group(field: { category: { slug: SELECT } }) {
+          fieldValue
+          nodes {
+            id
+            language
+          }
+        }
+      }
+    }
+  `)
+
+  const categories = categoryData.allArticle.group
+
+  categories.forEach((category) => {
+    const { fieldValue: slug, nodes } = category
+
+    languages.forEach((language) => {
+      const filteredNodes = nodes.filter((node) => node.language === language)
+      const totalCount = filteredNodes.length
+      const postsPerPage = 10
+      const numPages = Math.ceil(totalCount / postsPerPage)
+
+      Array.from({ length: numPages }).forEach((_, i) => {
+        const currentPage = i + 1
+        const skip = i * postsPerPage
+
+        actions.createPage({
+          path: i === 0 ? `/${language}${slug}` : `/${language}${slug}page/${currentPage}`,
+          component: path.resolve(__dirname, './templates/collection.category.js'),
+          context: {
+            slug,
+            limit: postsPerPage,
+            skip,
+            numPages,
+            currentPage,
+            mobileMenu,
+            includeExcerpt: true,
+            includeTimeToRead: true,
+            imageQuality: 75,
+            language,
+          },
+        })
+      })
+    })
   })
 
   /**
    * Tag posts pages
    */
-  await createCollectionPage(helpers, pluginOptions, {
-    template: require.resolve('./templates/collection.tag'),
-    slugField: '{tags: {slug: SELECT}}'
+  const { data: tagData } = await graphql(`
+    query {
+      allArticle {
+        group(field: { tags: { slug: SELECT } }) {
+          fieldValue
+          nodes {
+            id
+            language
+          }
+        }
+      }
+    }
+  `)
+
+  const tags = tagData.allArticle.group
+
+  tags.forEach((tag) => {
+    const { fieldValue: slug, nodes } = tag
+
+    languages.forEach((language) => {
+      const filteredNodes = nodes.filter((node) => node.language === language)
+      const totalCount = filteredNodes.length
+      const postsPerPage = 10
+      const numPages = Math.ceil(totalCount / postsPerPage)
+
+      Array.from({ length: numPages }).forEach((_, i) => {
+        const currentPage = i + 1
+        const skip = i * postsPerPage
+
+        actions.createPage({
+          path: i === 0 ? `/${language}${slug}` : `/${language}${slug}page/${currentPage}`,
+          component: path.resolve(__dirname, './templates/collection.tag.js'),
+          context: {
+            slug,
+            limit: postsPerPage,
+            skip,
+            numPages,
+            currentPage,
+            mobileMenu,
+            includeExcerpt: true,
+            includeTimeToRead: true,
+            imageQuality: 75,
+            language,
+          },
+        })
+      })
+    })
   })
 
   /**
    * Author posts pages
    */
-  await createCollectionPage(helpers, pluginOptions, {
-    template: require.resolve('./templates/collection.author'),
-    slugField: '{author: {slug: SELECT}}'
+  const { data: authorData } = await graphql(`
+    query {
+      allArticle {
+        group(field: { author: { slug: SELECT } }) {
+          fieldValue
+          nodes {
+            id
+            language
+          }
+        }
+      }
+    }
+  `)
+
+  const authors = authorData.allArticle.group
+
+  authors.forEach((author) => {
+    const { fieldValue: slug, nodes } = author
+
+    languages.forEach((language) => {
+      const filteredNodes = nodes.filter((node) => node.language === language)
+      const totalCount = filteredNodes.length
+      const postsPerPage = 10
+      const numPages = Math.ceil(totalCount / postsPerPage)
+
+      Array.from({ length: numPages }).forEach((_, i) => {
+        const currentPage = i + 1
+        const skip = i * postsPerPage
+
+        actions.createPage({
+          path: i === 0 ? `/${language}${slug}` : `/${language}${slug}page/${currentPage}`,
+          component: path.resolve(__dirname, './templates/collection.author.js'),
+          context: {
+            slug,
+            limit: postsPerPage,
+            skip,
+            numPages,
+            currentPage,
+            mobileMenu,
+            includeExcerpt: true,
+            includeTimeToRead: true,
+            imageQuality: 75,
+            language,
+          },
+        })
+      })
+    })
   })
 }

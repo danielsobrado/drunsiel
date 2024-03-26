@@ -6,36 +6,54 @@ import CardList from '@components/CardList'
 import Divider from '@components/Divider'
 import Seo from '@widgets/Seo'
 import AuthorExpanded from '@widgets/AuthorExpanded'
+import { useContext } from 'react';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
-const PageCollectionAuthors = ({
-  data: { posts, collectionInfo },
-  ...props
-}) => (
-  <Layout {...props}>
-    <Seo title={collectionInfo.name} description={collectionInfo.description} />
-    <Divider />
-    <Stack effectProps={{ effect: 'fadeInDown' }}>
-      <PageTitle header='Published by Author' totalCount={posts.totalCount} />
-    </Stack>
-    <Divider />
-    <Stack>
-      <Main>
-        <AuthorExpanded author={collectionInfo} />
-        <Divider />
-        {posts.nodes && (
-          <CardList
-            nodes={posts.nodes}
-            variant={['horizontal-md', 'vertical']}
-            columns={[1, 2, 3, 3]}
-          />
-        )}
-      </Main>
-    </Stack>
-    <Divider />
-    <PreFooter>
-      <Pagination {...posts.pageInfo} {...collectionInfo} />
-    </PreFooter>
-  </Layout>
-)
+const PageCollectionAuthors = ({ data: { posts, collectionInfo }, ...props }) => {
+  const { language } = useContext(LanguageContext);
 
-export default PageCollectionAuthors
+  const texts = {
+    en: {
+      pageTitle: 'Published by Author',
+    },
+    es: {
+      pageTitle: 'Publicado por Autor',
+    },
+  };
+
+  const { pageTitle } = texts[language];
+
+  return (
+    <Layout {...props}>
+      <Seo title={collectionInfo.name} description={collectionInfo.description} />
+      <Divider />
+      <Stack effectProps={{ effect: 'fadeInDown' }}>
+        <PageTitle header={pageTitle} totalCount={posts.totalCount} />
+      </Stack>
+      <Divider />
+      <Stack>
+        <Main>
+          <AuthorExpanded author={collectionInfo} />
+          <Divider />
+          {posts.nodes && (
+            <CardList
+              nodes={posts.nodes}
+              variant={['horizontal-md', 'vertical']}
+              columns={[1, 2, 3, 3]}
+            />
+          )}
+        </Main>
+      </Stack>
+      <Divider />
+      <PreFooter>
+        <Pagination
+          {...posts.pageInfo}
+          {...collectionInfo}
+          pathPrefix={`/${language}${collectionInfo.slug}`}
+        />
+      </PreFooter>
+    </Layout>
+  );
+};
+
+export default PageCollectionAuthors;
