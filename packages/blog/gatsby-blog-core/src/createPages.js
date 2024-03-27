@@ -18,7 +18,14 @@ module.exports = async ({ actions, graphql, reporter }, pluginOptions) => {
     }
   `)
 
-  const mobileMenu = await require('./utils/queryMobileMenu')({ data: mobileMenuData, language: 'en' });
+  const mobileMenu = await require('./utils/queryMobileMenu')({
+    data: mobileMenuData,
+    language: 'en',
+    setLanguage: (newLanguage) => {
+      // Handle language change logic here
+      console.log('Language changed to:', newLanguage);
+    },
+  });
 
   /**
    * Posts (home) page

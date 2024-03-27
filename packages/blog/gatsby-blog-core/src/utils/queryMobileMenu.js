@@ -1,4 +1,4 @@
-module.exports = async ({ data, language }) => {
+module.exports = async ({ data, language, setLanguage }) => {
   if (!data) return;
 
   const items = data.allArticleCategory.nodes;
@@ -6,13 +6,31 @@ module.exports = async ({ data, language }) => {
   const texts = {
     en: {
       title: 'Regions',
+      languageToggle: 'Español',
     },
     es: {
       title: 'Regiones',
+      languageToggle: 'English',
     },
   };
 
-  const { title } = texts[language];
+  const { title, languageToggle } = texts[language];
 
-  return items ? { title, items } : null;
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'es' : 'en');
+  };
+
+  const menuItems = [
+    ...items.map((item) => ({
+      name: item.name,
+      slug: `/${language}${item.slug}`,
+    })),
+    {
+      name: languageToggle,
+      slug: '#',
+      onClick: toggleLanguage,
+    },
+  ];
+
+  return menuItems ? { title, items: menuItems } : null;
 };
