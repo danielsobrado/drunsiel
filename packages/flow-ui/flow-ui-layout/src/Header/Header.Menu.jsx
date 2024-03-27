@@ -1,61 +1,36 @@
-import { Box } from 'theme-ui';
-import Navigation from '@components/Navigation';
-import Drawer from '@components/Drawer';
-import useSiteMetadata from '@helpers-blog/useSiteMetadata';
-import React, { useContext } from 'react';
+import { Box } from 'theme-ui'
+import Navigation from '@components/Navigation'
+import Drawer from '@components/Drawer'
+import useSiteMetadata from '@helpers-blog/useSiteMetadata'
+import React, { useContext } from 'react'
 import { LanguageContext } from '@helpers-blog/useLanguageContext';
-import { FaGlobe } from 'react-icons/fa';
+
 
 const styles = {
   desktopMenu: { display: [`none`, null, `block`] },
   mobileMenu: { display: [`block`, null, `none`] },
-  desktopMenuWrapper: { justifyContent: 'flex-end' },
-  languageToggle: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '40px',
-    height: '40px',
-    borderRadius: '50%',
-    backgroundColor: 'primary',
-    color: 'white',
-    cursor: 'pointer',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    transition: 'background-color 0.3s ease',
-    ':hover': {
-      backgroundColor: 'secondary',
-    },
-  },
-};
+  desktopMenuWrapper: { justifyContent: 'flex-end' }
+}
 
 export const HeaderMenu = ({ mobileMenu = {} }) => {
-  const { headerMenu } = useSiteMetadata();
+  const { headerMenu } = useSiteMetadata()
   const { language, setLanguage } = useContext(LanguageContext);
-
-  const toggleLanguage = () => {
-    setLanguage(prevLanguage => (prevLanguage === 'en' ? 'es' : 'en'));
-  };
-
-  const menuItemsWithLanguageToggle = [
-    ...headerMenu.map((item) => ({ ...item, slug: `/${language}${item.slug}` })),
-  ];
+ 
+  // Define the title based on the language
+  const mainMenuTitle = language === 'en' ? 'Main Menu' : 'Menú Principal';
 
   const desktopMenuNav = (
-    <Navigation
-      variant="horizontal"
-      items={menuItemsWithLanguageToggle}
-      wrapperStyle={styles.desktopMenuWrapper}
-    />
+    <Navigation variant='horizontal' items={headerMenu} wrapperStyle={styles.desktopMenuWrapper}>
+    </Navigation>
   );
 
   const mobileMenuNav = (
     <Drawer>
-      <Navigation variant="vertical" headingProps={{ variant: 'h3' }} items={mobileMenu} />
-      <Box sx={styles.languageToggle} onClick={toggleLanguage}>
-        <FaGlobe />
-        <span>{language === 'en' ? 'N' : 'E'}</span>
-      </Box>
+      <Navigation
+        variant="vertical"
+        headingProps={{ variant: 'h3' }}
+        items={mobileMenu}
+      ></Navigation> 
     </Drawer>
   );
 
@@ -64,5 +39,5 @@ export const HeaderMenu = ({ mobileMenu = {} }) => {
       <Box sx={styles.desktopMenu}>{desktopMenuNav}</Box>
       <Box sx={styles.mobileMenu}>{mobileMenuNav}</Box>
     </>
-  );
-};
+  )
+}
