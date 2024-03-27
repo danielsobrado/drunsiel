@@ -24,6 +24,10 @@ module.exports = async ({ actions, graphql, reporter }, pluginOptions) => {
     setLanguage: (newLanguage) => {
       // Handle language change logic here
       console.log('Language changed to:', newLanguage);
+      // Redirect to the new language version of the current page
+      const currentPath = window.location.pathname;
+      const newPath = `/${newLanguage}${currentPath.slice(3)}`;
+      window.location.href = newPath;
     },
   });
 

@@ -44,15 +44,12 @@ export const HeaderMenu = ({ mobileMenu = {} }) => {
   const mobileMenuNav = (
     <Drawer>
       <Navigation
-        variant='vertical'
+        variant="vertical"
         headingProps={{ variant: 'h3' }}
-        items={[
-          { title: mainMenuTitle, items: headerMenu.map((item) => ({ ...item, slug: `/${language}${item.slug}` })) },
-          mobileMenu
-        ]}
+        items={mobileMenu}
       ></Navigation>
     </Drawer>
-  )
+  );
 
   return (
     <>

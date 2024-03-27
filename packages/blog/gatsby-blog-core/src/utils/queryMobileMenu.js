@@ -21,16 +21,24 @@ module.exports = async ({ data, language, setLanguage }) => {
   };
 
   const menuItems = [
-    ...items.map((item) => ({
-      name: item.name,
-      slug: `/${language}${item.slug}`,
-    })),
     {
-      name: languageToggle,
-      slug: '#',
-      onClick: toggleLanguage,
+      name: 'Languages',
+      items: [
+        {
+          name: language === 'en' ? 'Español' : 'English',
+          slug: '#',
+          onClick: toggleLanguage,
+        },
+      ],
+    },
+    {
+      name: title,
+      items: items.map((item) => ({
+        name: item.name,
+        slug: `/${language}${item.slug}`,
+      })),
     },
   ];
 
-  return menuItems ? { title, items: menuItems } : null;
+  return menuItems;
 };
