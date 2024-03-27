@@ -4,7 +4,7 @@ const typesDefs = require('../types')
 module.exports = pluginOptions => {
   const services = {
     algolia: getValue(pluginOptions, 'services.algolia', false),
-    mailchimp: getValue(pluginOptions, 'services.mailchimp', false),
+    mailchimp: getValue(pluginOptions, 'services.mailchimp', true),
     disqus: getValue(pluginOptions, 'services.disqus', false),
     graphComment: getValue(pluginOptions, 'services.graphComment', false),
     facebookComment: getValue(pluginOptions, 'services.facebookComment', false)

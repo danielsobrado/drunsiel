@@ -1,13 +1,15 @@
-const withDefaults = require('./src/utils/default.options')
+require('dotenv').config();
+
+const withDefaults = require('./src/utils/default.options');
 
 module.exports = options => {
-  options = withDefaults(options)
+  options = withDefaults(options);
 
   const isLocalSourceEnabled = options.sources.find(
     source => source.sourceInstanceName && source.enabled
-  )
-  const mdxSource = options.sources.find(source => source.name == 'mdx')
-  const mdxExtensions = mdxSource && mdxSource.extensions
+  );
+  const mdxSource = options.sources.find(source => source.name == 'mdx');
+  const mdxExtensions = mdxSource && mdxSource.extensions;
 
   const plugins = [
     {
@@ -63,18 +65,24 @@ module.exports = options => {
       options: {
         checkSupportedExtensions: false
       }
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: process.env.MAILCHIMP_END_POINT
+      }
     }
-  ].filter(Boolean)
+  ].filter(Boolean);
 
   // Resolve local paths
   if (isLocalSourceEnabled) {
-    plugins.push('gatsby-transformer-json')
+    plugins.push('gatsby-transformer-json');
     options.localPaths.forEach(localPath =>
       plugins.push({
         resolve: 'gatsby-source-filesystem',
         options: localPath
       })
-    )
+    );
   }
 
   // Resolve static paths (ie. assets)
@@ -83,9 +91,9 @@ module.exports = options => {
       resolve: 'gatsby-source-filesystem',
       options: localPath
     })
-  )
+  );
 
   return {
     plugins
-  }
-}
+  };
+};

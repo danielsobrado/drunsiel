@@ -1,9 +1,10 @@
-import React from 'react'
-import { css } from 'theme-ui'
-import { Card, Text, Heading, Box } from 'theme-ui'
-import NewsletterForm from '@components/NewsletterForm'
-import useMailChimp from '@helpers/useMailChimp'
-import { FaRegPaperPlane, FaWind } from 'react-icons/fa'
+import React, { useContext } from 'react';
+import { css } from 'theme-ui';
+import { Card, Text, Heading, Box } from 'theme-ui';
+import NewsletterForm from '@components/NewsletterForm';
+import useMailChimp from '@helpers/useMailChimp';
+import { FaRegPaperPlane, FaWind } from 'react-icons/fa';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
   card: {
@@ -43,16 +44,24 @@ const styles = {
 }
 
 const NewsletterExpanded = ({ simple }) => {
-  const {
-    handleSubmit,
-    canSubmit,
-    submitting,
-    message,
-    success
-  } = useMailChimp()
+  const { language } = useContext(LanguageContext);
+  const { handleSubmit, canSubmit, submitting, message, success } = useMailChimp();
+
+  const texts = {
+    en: {
+      title: 'Subscribe to our newsletter!',
+      description: "We'll send you the best of our blog just once a month. We promise.",
+    },
+    es: {
+      title: '¡Suscríbete a nuestro boletín informativo!',
+      description: 'Te enviaremos lo mejor de nuestro blog solo una vez al mes. Lo prometemos.',
+    },
+  };
+
+  const { title, description } = texts[language];
 
   return (
-    <Card variant='paper' sx={styles.card}>
+    <Card variant="paper" sx={styles.card}>
       <Box sx={styles.wrapper}>
         {!simple && (
           <Box sx={styles.icons}>
@@ -60,28 +69,18 @@ const NewsletterExpanded = ({ simple }) => {
             <FaWind css={css(styles.wind)} />
           </Box>
         )}
-        <Heading variant='h2'>Subscribe to our newsletter!</Heading>
-        <Text variant='p'>
-          We'll send you the best of our blog just once a month. We promise.
-        </Text>
+        <Heading variant="h2">{title}</Heading>
+        <Text variant="p">{description}</Text>
         <Box sx={styles.form}>
-          <NewsletterForm
-            {...{
-              handleSubmit,
-              canSubmit,
-              submitting,
-              message,
-              success
-            }}
-          />
+          <NewsletterForm {...{ handleSubmit, canSubmit, submitting, message, success }} />
         </Box>
       </Box>
     </Card>
-  )
-}
+  );
+};
 
 NewsletterExpanded.defaultProps = {
-  simple: false
-}
+  simple: false,
+};
 
-export default NewsletterExpanded
+export default NewsletterExpanded;
