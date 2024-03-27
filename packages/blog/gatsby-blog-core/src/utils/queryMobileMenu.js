@@ -1,4 +1,4 @@
-module.exports = async ({ data, language, setLanguage }) => {
+module.exports = async ({ data, language, setLanguage, closeMenu }) => {
   if (!data) return;
 
   const items = data.allArticleCategory.nodes;
@@ -18,6 +18,7 @@ module.exports = async ({ data, language, setLanguage }) => {
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'es' : 'en');
+    closeMenu();
   };
 
   const menuItems = [
