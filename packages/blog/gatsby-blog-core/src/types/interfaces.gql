@@ -47,9 +47,12 @@ interface ArticleAuthor implements Node {
   name: String!
   slug: String!
   description: String
+  descriptiones: String
   title: String
+  titlees: String
   social: [SocialMedia]
   skills: [String]
+  skillses: [String]
   thumbnail: ImageAsset
 }
 

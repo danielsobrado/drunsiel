@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Box, IconButton, css } from 'theme-ui';
 import Switch from 'rc-switch';
 import 'rc-switch/assets/index.css';
-import { FaGlobe } from 'react-icons/fa';
+import { FaGlobe, FaLanguage } from 'react-icons/fa';
 import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
@@ -66,7 +66,7 @@ export const LanguageSwitch = () => {
         onClick={handleChange}
         sx={styles.mobileTrigger}
       >
-        <FaGlobe />
+        {isEnglish ? <FaGlobe /> : <FaLanguage />}
       </IconButton>
       <Switch
         aria-label={label}

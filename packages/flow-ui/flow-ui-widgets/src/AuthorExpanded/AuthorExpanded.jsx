@@ -1,10 +1,11 @@
-import React from 'react'
-import { Link as GLink } from 'gatsby'
-import { Flex, Box, Text, Heading, Card, Badge, Link } from 'theme-ui'
-import MemphisPattern from '@components/MemphisPattern'
-import Avatar from '@components/Avatar'
-import Navigation from '@components/Navigation'
-import attachSocialIcons from '@helpers/attachSocialIcons'
+import React, { useContext } from 'react';
+import { Link as GLink } from 'gatsby';
+import { Flex, Box, Text, Heading, Card, Badge, Link } from 'theme-ui';
+import MemphisPattern from '@components/MemphisPattern';
+import Avatar from '@components/Avatar';
+import Navigation from '@components/Navigation';
+import attachSocialIcons from '@helpers/attachSocialIcons';
+import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
   card: {
@@ -72,7 +73,7 @@ const Subheader = ({ children }) => (
   <Heading variant='h4' sx={styles.subheader}>
     {children}
   </Heading>
-)
+);
 
 const AuthorAvatar = ({ name, thumbnail, slug }) =>
   thumbnail ? (
@@ -81,7 +82,7 @@ const AuthorAvatar = ({ name, thumbnail, slug }) =>
         <Avatar avatar={thumbnail} alt={name} />
       </Link>
     </Box>
-  ) : null
+  ) : null;
 
 const AuthorName = ({ name, slug }) => (
   <Box sx={styles.name}>
@@ -91,24 +92,36 @@ const AuthorName = ({ name, slug }) => (
       </Link>
     </Heading>
   </Box>
-)
+);
 
-const AuthorBio = ({ title, description }) => (
-  <Box sx={styles.bio}>
-    <Subheader>{title}</Subheader>
-    <Text>{description}</Text>
-  </Box>
-)
+const AuthorBio = ({ title, description, titlees, descriptiones }) => {
+  const { language } = useContext(LanguageContext);
+  const currentTitle = language === 'en' ? title : titlees;
+  const currentDescription = language === 'en' ? description : descriptiones;
 
-const AuthorSkills = ({ skills }) =>
-  skills ? (
+  console.log("descriptiones: "+currentDescription)
+
+  return (
+    <Box sx={styles.bio}>
+      <Subheader>{currentTitle}</Subheader>
+      <Text>{currentDescription}</Text>
+    </Box>
+  );
+};
+
+const AuthorSkills = ({ skills, skillses }) => {
+  const { language } = useContext(LanguageContext);
+  const currentSkills = language === 'en' ? skills : skillses;
+
+  return currentSkills ? (
     <Box sx={styles.innerBox}>
       <Subheader>Expertise</Subheader>
-      {skills.map(skill => (
+      {currentSkills.map((skill) => (
         <Text key={`skill-${skill}`}>{skill}</Text>
       ))}
     </Box>
-  ) : null
+  ) : null;
+};
 
 const AuthorSocialMedia = ({ social }) =>
   social ? (
@@ -120,12 +133,11 @@ const AuthorSocialMedia = ({ social }) =>
         wrapperStyle={styles.socialList}
       />
     </Box>
-  ) : null
+  ) : null;
 
 const AuthorExpanded = ({ author, withLink }) => {
-  if (!author) return null
-
-  const { skills, social } = author
+  if (!author) return null;
+  const { social, title, description, titlees, descriptiones, skills, skillses } = author;
 
   return (
     <Card variant='paper' sx={styles.card}>
@@ -137,12 +149,12 @@ const AuthorExpanded = ({ author, withLink }) => {
           <AuthorName {...author} />
           <Flex sx={styles.wrapper}>
             <Box sx={styles.innerBox}>
-              <AuthorBio {...author} />
+              <AuthorBio title={title} description={description} titlees={titlees} descriptiones={descriptiones} />
             </Box>
-            {(social || skills) && (
+            {(social || skills || skillses) && (
               <Box sx={styles.innerBox}>
                 <Flex>
-                  <AuthorSkills {...author} />
+                  <AuthorSkills skills={skills} skillses={skillses} />
                   <AuthorSocialMedia {...author} />
                 </Flex>
               </Box>
@@ -158,7 +170,7 @@ const AuthorExpanded = ({ author, withLink }) => {
       <Box sx={styles.gradient} />
       <MemphisPattern sx={styles.pattern} />
     </Card>
-  )
-}
+  );
+};
 
-export default AuthorExpanded
+export default AuthorExpanded;
