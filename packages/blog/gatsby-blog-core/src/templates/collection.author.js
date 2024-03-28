@@ -15,6 +15,13 @@ export const pageQuery = graphql`
   ) {
     collectionInfo: articleAuthor(slug: { eq: $slug }) {
       ...ArticleAuthor
+      id
+      name
+      slug
+      description
+      descriptiones
+      skills
+      skillses
     }
     posts: allArticle(
       filter: {

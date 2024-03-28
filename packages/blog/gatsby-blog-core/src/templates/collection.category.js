@@ -16,8 +16,10 @@ export const pageQuery = graphql`
     collectionInfo: articleCategory(slug: { eq: $slug }) {
       id
       name
+      namees
       slug
       description
+      descriptiones
     }
     posts: allArticle(
       filter: {

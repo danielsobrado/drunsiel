@@ -12,7 +12,6 @@ export const useBlogCategories = () => {
   // Filter categories based on the current language
   const filteredCategories = categories.map(category => ({
     ...category,
-    name: language === 'es' ? category.namees || category.name : category.name,
     description: language === 'es' ? category.descriptiones || category.description : category.description,
     slug: `/${language}${category.slug}`,
   }));

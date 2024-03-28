@@ -45,7 +45,6 @@ interface ArticleCategory implements Node {
 interface ArticleAuthor implements Node {
   id: ID!
   name: String!
-  namees: String
   slug: String!
   description: String
   descriptiones: String

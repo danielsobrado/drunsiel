@@ -32,7 +32,7 @@ export const pageQuery = graphql`
           ...ArticlePreview
           ...ArticleThumbnailRegular
           category {
-            namees
+            descriptiones
           }
           language
         }
