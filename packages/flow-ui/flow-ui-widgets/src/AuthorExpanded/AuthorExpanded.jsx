@@ -99,7 +99,7 @@ const AuthorBio = ({ title, description, titlees, descriptiones }) => {
   const currentTitle = language === 'en' ? title : titlees;
   const currentDescription = language === 'en' ? description : descriptiones;
 
-  console.log("descriptiones: "+currentDescription)
+  console.log("descriptiones: " + currentDescription);
 
   return (
     <Box sx={styles.bio}>
@@ -113,9 +113,18 @@ const AuthorSkills = ({ skills, skillses }) => {
   const { language } = useContext(LanguageContext);
   const currentSkills = language === 'en' ? skills : skillses;
 
+  const translations = {
+    en: {
+      expertise: 'Expertise',
+    },
+    es: {
+      expertise: 'Experiencia',
+    },
+  };
+
   return currentSkills ? (
     <Box sx={styles.innerBox}>
-      <Subheader>Expertise</Subheader>
+      <Subheader>{translations[language].expertise}</Subheader>
       {currentSkills.map((skill) => (
         <Text key={`skill-${skill}`}>{skill}</Text>
       ))}
@@ -123,10 +132,21 @@ const AuthorSkills = ({ skills, skillses }) => {
   ) : null;
 };
 
-const AuthorSocialMedia = ({ social }) =>
-  social ? (
+const AuthorSocialMedia = ({ social }) => {
+  const { language } = useContext(LanguageContext);
+
+  const translations = {
+    en: {
+      socialMedia: 'Social Media',
+    },
+    es: {
+      socialMedia: 'Redes Sociales',
+    },
+  };
+
+  return social ? (
     <Box sx={styles.innerBox}>
-      <Subheader>Social Media</Subheader>
+      <Subheader>{translations[language].socialMedia}</Subheader>
       <Navigation
         variant='vertical'
         items={attachSocialIcons(social)}
@@ -134,6 +154,7 @@ const AuthorSocialMedia = ({ social }) =>
       />
     </Box>
   ) : null;
+};
 
 const AuthorExpanded = ({ author, withLink }) => {
   if (!author) return null;

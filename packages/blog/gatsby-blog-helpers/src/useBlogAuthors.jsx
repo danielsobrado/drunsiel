@@ -10,24 +10,23 @@ export const useBlogAuthors = () => {
       allArticleAuthor {
         nodes {
           ...ArticleAuthor
-          name
-          namees: name
-          description
-          descriptiones: description
+          descriptiones
+          titlees
+          skillses
         }
       }
     }
   `);
 
-  const authors = allArticleAuthor.nodes
-    ? dedupe(allArticleAuthor.nodes, node => node.slug)
-    : [];
+  const authors = allArticleAuthor.nodes ? dedupe(allArticleAuthor.nodes, node => node.slug) : [];
 
-  // Filter authors based on the current language, adjust the logic here
+  // Filter authors based on the current language
   const filteredAuthors = authors.map(author => ({
     ...author,
-    name: language === 'es' ? author.namees : author.name,
-    description: language === 'es' ? author.descriptiones : author.description,
+    description: language === 'es' ? author.descriptiones || author.description : author.description,
+    title: language === 'es' ? author.titlees || author.title : author.title,
+    skills: language === 'es' ? author.skillses || author.skills : author.skills,
+    slug: `/${language}${author.slug}`,
   }));
 
   return filteredAuthors;
