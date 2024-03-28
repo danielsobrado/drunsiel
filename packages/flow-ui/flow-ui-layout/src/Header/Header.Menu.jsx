@@ -17,21 +17,26 @@ export const HeaderMenu = ({ mobileMenu = {} }) => {
 
   const translations = {
     en: {
+      home: 'Home',
+      characters: 'Characters',
+      contact: 'Contact',
       mainMenu: 'Main Menu',
       regions: 'Regions',
     },
     es: {
+      home: 'Inicio',
+      characters: 'Personajes',
+      contact: 'Contacto',
       mainMenu: 'Menú Principal',
       regions: 'Regiones',
     },
   };
 
-  const menuItemsWithLanguageToggle = [
-    ...headerMenu.map((item) => ({
-      ...item,
-      slug: item.slug,
-    }))
-  ];
+  const menuItemsWithLanguageToggle = headerMenu.map((item) => ({
+    ...item,
+    name: translations[language][item.name.toLowerCase()],
+    slug: item.slug,
+  }));
 
   const desktopMenuNav = (
     <Navigation
@@ -47,7 +52,11 @@ export const HeaderMenu = ({ mobileMenu = {} }) => {
   const mobileMenuItems = [
     {
       title: translations[language].mainMenu,
-      items: headerMenu,
+      items: headerMenu.map((item) => ({
+        ...item,
+        name: translations[language][item.name.toLowerCase()],
+        slug: item.slug,
+      })),
     },
     ...(mobileMenu.items ? [
       {
