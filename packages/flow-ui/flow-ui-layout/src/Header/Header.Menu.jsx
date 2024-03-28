@@ -6,38 +6,32 @@ import React, { useContext } from 'react'
 import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const styles = {
-  desktopMenu: {
-    display: [`none`, null, `block`]
-  },
-  mobileMenu: {
-    display: [`block`, null, `none`]
-  },
-  desktopMenuWrapper: {
-    justifyContent: 'flex-end'
-  }
+  desktopMenu: { display: [`none`, null, `block`] },
+  mobileMenu: { display: [`block`, null, `none`] },
+  desktopMenuWrapper: { justifyContent: 'flex-end' }
 }
 
 export const HeaderMenu = ({ mobileMenu = {} }) => {
   const { headerMenu } = useSiteMetadata()
+  const { language } = useContext(LanguageContext);
 
-  // Inside the HeaderMenu component, use the context
-  const { language, setLanguage } = useContext(LanguageContext);
-  console.log("LanguageContext: "+language)
-  
-  const toggleLanguage = () => {
-    setLanguage((prevLanguage) => (prevLanguage === "en" ? "es" : "en"));
-    // No need to handle the language change logic for your app here
-    // as it will just trigger a re-render with the new language context
+  const translations = {
+    en: {
+      mainMenu: 'Main Menu',
+      regions: 'Regions',
+    },
+    es: {
+      mainMenu: 'Menú Principal',
+      regions: 'Regiones',
+    },
   };
 
-    // Create a new menu array that includes the language toggle
-    const menuItemsWithLanguageToggle = [
-      ...headerMenu.map((item) => ({
-        ...item,
-        slug: item.slug,
-      }))
-    ];
-
+  const menuItemsWithLanguageToggle = [
+    ...headerMenu.map((item) => ({
+      ...item,
+      slug: item.slug,
+    }))
+  ];
 
   const desktopMenuNav = (
     <Navigation
@@ -48,26 +42,38 @@ export const HeaderMenu = ({ mobileMenu = {} }) => {
     </Navigation>
   );
 
+  console.log("header menu: " + headerMenu);
+
+  const mobileMenuItems = [
+    {
+      title: translations[language].mainMenu,
+      items: headerMenu,
+    },
+    ...(mobileMenu.items ? [
+      {
+        title: translations[language].regions,
+        items: mobileMenu.items.map((item) => ({
+          ...item,
+          slug: `/${language}${item.slug}`,
+        })),
+      },
+    ] : []),
+  ];
+
   const mobileMenuNav = (
     <Drawer>
       <Navigation
         variant='vertical'
         headingProps={{ variant: 'h3' }}
-        items={[
-          {
-            title: 'Main Menu',
-            items: headerMenu
-          },
-          mobileMenu
-        ]}
-        ></Navigation>
+        items={mobileMenuItems}
+      ></Navigation>
     </Drawer>
-  )
+  );
 
   return (
     <>
       <Box sx={styles.desktopMenu}>{desktopMenuNav}</Box>
       <Box sx={styles.mobileMenu}>{mobileMenuNav}</Box>
     </>
-  )
-}
+  );
+};
