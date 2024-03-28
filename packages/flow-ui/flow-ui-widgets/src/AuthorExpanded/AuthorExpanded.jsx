@@ -75,24 +75,37 @@ const Subheader = ({ children }) => (
   </Heading>
 );
 
-const AuthorAvatar = ({ name, thumbnail, slug }) =>
-  thumbnail ? (
+const AuthorAvatar = ({ name, thumbnail, slug }) => {
+  const { language } = useContext(LanguageContext);
+
+  // Check if the slug already includes the language prefix
+  const slugWithLanguage = slug.startsWith(`/${language}/`) ? slug : `/${language}${slug}`;
+
+  return thumbnail ? (
     <Box>
-      <Link as={GLink} to={slug} aria-label={name}>
+      <Link as={GLink} to={slugWithLanguage} aria-label={name}>
         <Avatar avatar={thumbnail} alt={name} />
       </Link>
     </Box>
   ) : null;
+};
 
-const AuthorName = ({ name, slug }) => (
-  <Box sx={styles.name}>
-    <Heading variant='h3'>
-      <Link as={GLink} to={slug}>
-        {name}
-      </Link>
-    </Heading>
-  </Box>
-);
+  const AuthorName = ({ name, slug }) => {
+    const { language } = useContext(LanguageContext);
+  
+    // Check if the slug already includes the language prefix
+    const slugWithLanguage = slug.startsWith(`/${language}/`) ? slug : `/${language}${slug}`;
+  
+    return (
+      <Box sx={styles.name}>
+        <Heading variant='h3'>
+          <Link as={GLink} to={slugWithLanguage}>
+            {name}
+          </Link>
+        </Heading>
+      </Box>
+    );
+  };
 
 const AuthorBio = ({ title, description, titlees, descriptiones }) => {
   const { language } = useContext(LanguageContext);
