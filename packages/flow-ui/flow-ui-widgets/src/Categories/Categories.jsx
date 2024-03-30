@@ -44,7 +44,7 @@ const Categories = ({ variant, categories, ...props }) => {
             key: id,
             name,
             number: totalCount,
-            to: `/${language}${slug}`,
+            to: slug,
             iconPath: icon,
             Icon: !icon && FaArchive,
             variant,
