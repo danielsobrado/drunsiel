@@ -23,7 +23,7 @@ const styles = {
     flexBasis: `2/3`
   },
   innerBox: {
-    flexBasis: `1/2`,
+    flexBasis: `1/7`,
     flexGrow: 1,
     px: [0, 3],
     mt: [3, 0]
@@ -185,22 +185,9 @@ const AuthorExpanded = ({ author, withLink }) => {
             <Box sx={styles.innerBox}>
               <AuthorBio title={title} description={description} titlees={titlees} descriptiones={descriptiones} />
             </Box>
-            {(social || skills || skillses) && (
-              <Box sx={styles.innerBox}>
-                <Flex>
-                  <AuthorSkills skills={skills} skillses={skillses} />
-                  <AuthorSocialMedia {...author} />
-                </Flex>
-              </Box>
-            )}
           </Flex>
         </Box>
       </Flex>
-      {withLink && (
-        <Badge variant='tag' as={GLink} to={author.slug} sx={styles.link}>
-          View Posts
-        </Badge>
-      )}
       <Box sx={styles.gradient} />
       <MemphisPattern sx={styles.pattern} />
     </Card>
