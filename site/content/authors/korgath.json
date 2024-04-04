@@ -1,0 +1,30 @@
+{
+  "name": "Korgath Nargul",
+  "title": "Half-Orc King",
+  "titlees": "Rey Medio Orco",
+  "description": "Korgath Nargul, a formidable half-orc king, wields power with both savagery and cunning. His towering frame is a testament to his orcish heritage, while the sharp glint in his eyes betrays a keen intellect inherited from his human side. Scars crisscross his greenish-grey skin, each a silent witness to battles fought and won. Korgath's presence commands respect, his voice a deep rumble that resonates with authority. In his rule, he combines the ferocity of orcs with the strategic mind of humans, making him a leader both feared and revered.",
+  "descriptiones": "Korgath Nargul, un formidable rey medio orco, ejerce el poder con tanto salvajismo como astucia. Su imponente estatura es un testimonio de su herencia orca, mientras que el brillo agudo en sus ojos traiciona una aguda inteligencia heredada de su lado humano. Cicatrices cruzan su piel gris-verdosa, cada una testigo silencioso de batallas luchadas y ganadas. La presencia de Korgath impone respeto, su voz es un profundo retumbar que resuena con autoridad. En su gobierno, combina la ferocidad de los orcos con la mente estratégica de los humanos, haciéndolo un líder tanto temido como venerado.",
+  "thumbnail": "korgath.png",
+  "social": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/drusniel/"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/twitter"
+    },
+    {
+      "name": "Website",
+      "url": "https://danielsobrado.com"
+    }
+  ],
+  "skills": [
+    "Skin Walker",
+    "Assassin"
+  ],
+  "skillses": [
+    "Metaforsis",
+    "Asesino"
+  ]
+}
