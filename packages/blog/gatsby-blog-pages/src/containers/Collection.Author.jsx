@@ -14,10 +14,10 @@ const PageCollectionAuthors = ({ data: { posts, collectionInfo }, ...props }) =>
 
   const texts = {
     en: {
-      pageTitle: 'Published by Author',
+      pageTitle: 'Characters',
     },
     es: {
-      pageTitle: 'Publicado por Autor',
+      pageTitle: 'Personajes',
     },
   };
 

@@ -19,16 +19,19 @@ export const HeaderMenu = ({ mobileMenu = {} }) => {
     en: {
       home: 'Home',
       characters: 'Characters',
+      gods: 'Gods',
       contact: 'Contact',
       mainMenu: 'Main Menu',
       regions: 'Regions',
+      read: 'Read This',
     },
     es: {
       home: 'Inicio',
       characters: 'Personajes',
+      gods: 'Dioses',
       contact: 'Contacto',
       mainMenu: 'Menú Principal',
-      regions: 'Regiones',
+      read: 'Empezemos',
     },
   };
 
@@ -47,7 +50,7 @@ export const HeaderMenu = ({ mobileMenu = {} }) => {
     </Navigation>
   );
 
-  console.log("header menu: " + headerMenu);
+  console.log("header menu: " + menuItemsWithLanguageToggle);
 
   const mobileMenuItems = [
     {

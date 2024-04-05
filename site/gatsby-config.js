@@ -51,6 +51,14 @@ module.exports = {
         slug: '/authors'
       },
       {
+        name: 'Gods',
+        slug: '/gods'
+      },
+      {
+        name: 'Read',
+        slug: '/read'
+      },
+      {
         name: 'Contact',
         slug: '/contact'
       }
