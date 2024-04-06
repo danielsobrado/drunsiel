@@ -1,0 +1,31 @@
+{
+  "name": "Venemora",
+  "title": "Drow Goddess",
+  "titlees": "Diosa Drow",
+  "description": "Venemora, a deity of unmatched power and darkness, reigns supreme within the depths of the underrealm. Her sanctuary, a grandiose temple hidden in the heart of the eternal night, serves as a beacon for those who thrive in shadows. Her presence is awe-inspiring, shrouded in a veil of mystery and imbued with the essence of ancient, forbidden magic. Her eyes, pools of liquid night, reflect the fathomless depths of her wisdom and the dominion she holds over death and deceit. Within her sacred halls, Venemora weaves the destinies of the drow, her influence as pervasive as the darkness that envelopes her realm.",
+  "descriptiones": "Venemora, una deidad de poder y oscuridad sin igual, reina suprema en las profundidades del inframundo. Su santuario, un templo grandioso oculto en el corazón de la noche eterna, sirve como faro para aquellos que prosperan en las sombras. Su presencia es impresionante, envuelta en un velo de misterio e impregnada con la esencia de magia antigua y prohibida. Sus ojos, pozos de noche líquida, reflejan las profundidades insondables de su sabiduría y el dominio que tiene sobre la muerte y el engaño. Dentro de sus sagrados salones, Venemora teje los destinos de los drow, su influencia tan omnipresente como la oscuridad que envuelve su reino.",
+  "thumbnail": "venemora.png",
+  "god": true,
+  "social": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/drusniel/"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/twitter"
+    },
+    {
+      "name": "Website",
+      "url": "https://danielsobrado.com"
+    }
+  ],
+  "skills": [
+    "Wizard",
+    "Dark magic"
+  ],
+  "skillses": [
+    "Mago",
+    "Magia Oscura"
+  ]
+}

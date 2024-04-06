@@ -5,6 +5,7 @@
   "description": "Elion Wlux, a cunning skin-walker from the enigmatic alleys of Wyrmreach, is ensnared in a web of conspiracy that threatens the very fabric of his existence. His ability to shift forms has made him a key player in a game of shadows, where alliances are as fleeting as the faces he wears. Despite his mastery of deception, a glimmer of vulnerability lurks within his mercurial eyes, hinting at a past riddled with secrets and a heart that yearns for a place to belong.",
   "descriptiones": "Elion Wlux, un astuto cambiaformas de los enigmáticos callejones de Wyrmreach, está atrapado en una red de conspiración que amenaza el mismo tejido de su existencia. Su habilidad para cambiar de forma lo ha convertido en un actor clave en un juego de sombras, donde las alianzas son tan efímeras como los rostros que adopta. A pesar de su maestría en el engaño, un destello de vulnerabilidad se esconde en sus ojos cambiantes, insinuando un pasado lleno de secretos y un corazón que anhela un lugar al que pertenecer.",
   "thumbnail": "elion.png",
+  "god": false,
   "social": [
     {
       "name": "Instagram",

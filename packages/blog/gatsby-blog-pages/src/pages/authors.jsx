@@ -9,7 +9,7 @@ import { useBlogAuthors } from '@helpers-blog'
 import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const PageAuthors = props => {
-  const authors = useBlogAuthors()
+  const authors = useBlogAuthors('notGods')
   const { language } = useContext(LanguageContext);
   // header: 'Main Characters'
   let header = 'Main Characters';
@@ -17,9 +17,9 @@ const PageAuthors = props => {
     header = 'Personajes Principales';
   }
   // subheader: 'Interested in contributing? Reach out to us using the contact form. Always keen to explore and expand.'
-  let subheader = 'Interested in contributing? Reach out to us using the contact form. Always keen to explore and expand.';
+  let subheader = 'Step into the murky world of Astalor, where characters navigate the gray edges of morality, their destinies intertwined in a grim dance of power, betrayal, and survival.';
   if (language === "es") {
-    subheader = '¿Interesado en contribuir? Contáctenos utilizando el formulario de contacto. Siempre dispuestos a explorar y expandir.';
+    subheader = 'Entra al mundo oscuro de Astalor, donde los personajes exploran los límites oscuros de la ética, y sus vidas se entrelazan en un oscuro juego de poder, traición y supervivencia.';
   }
 
   return (

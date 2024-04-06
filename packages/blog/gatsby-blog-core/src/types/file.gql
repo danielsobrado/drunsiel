@@ -49,5 +49,6 @@ type AuthorsJson implements Node & ArticleAuthor @dontInfer {
   social: [SocialMedia] @normalizeSocial
   skills: [String]
   skillses: [String]
+  god: Boolean
   thumbnail: ImageSharp @fileByRelativePath @reduce(to: "id") @link(by: "parent.id")
 }

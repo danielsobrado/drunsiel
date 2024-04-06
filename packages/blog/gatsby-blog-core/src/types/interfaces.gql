@@ -53,6 +53,7 @@ interface ArticleAuthor implements Node {
   social: [SocialMedia]
   skills: [String]
   skillses: [String]
+  god: Boolean
   thumbnail: ImageAsset
 }
 

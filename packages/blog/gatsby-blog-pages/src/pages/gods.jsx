@@ -9,7 +9,7 @@ import { useBlogAuthors } from '@helpers-blog'
 import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
 const PageAuthors = props => {
-  const authors = useBlogAuthors()
+  const authors = useBlogAuthors('gods'); 
   const { language } = useContext(LanguageContext);
   // header: 'Main Characters'
   let header = 'Gods of Astalor';
@@ -17,14 +17,14 @@ const PageAuthors = props => {
     header = 'Los dioses de Astalor';
   }
   // subheader: 'Interested in contributing? Reach out to us using the contact form. Always keen to explore and expand.'
-  let subheader = 'Interested in contributing? Reach out to us using the contact form. Always keen to explore and expand.';
+  let subheader = 'Discover the guardians of Astalor, where ancient spirits and earthly deities guide the fortunes of lands and people, intertwined with nature unyielding forces.';
   if (language === "es") {
-    subheader = '¿Interesado en contribuir? Contáctenos utilizando el formulario de contacto. Siempre dispuestos a explorar y expandir.';
+    subheader = 'Descubre a los guardianes de Astalor, donde espíritus ancestrales y deidades terrenales guían las fortunas de tierras y pueblos, entrelazados con las fuerzas inquebrantables de la naturaleza.';
   }
 
   return (
     <Layout {...props}>
-      <Seo title='Characters' />
+      <Seo title='Gods' />
       <Divider />
       <Stack effectProps={{ effect: 'fadeInDown' }}>
       <PageTitle
