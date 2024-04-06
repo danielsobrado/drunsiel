@@ -12,34 +12,26 @@ import { LanguageContext } from '@helpers-blog/useLanguageContext';
 const PageContact = props => {
   const { language } = useContext(LanguageContext);
   
-  let header = "Let's Connect";
+  let header = "Begin your journey through Astalor here";
   if (language === "es") {
-    header = "Conectemos";
+    header = "Inicia tu viaje a través de Astalor aquí";
   }
   
-  let subheader = "Interested in hiring us for freelance work?, looking for a cooperative partnership?, or just wanting to engage in insightful discussion? We're always open for conversation - let's connect!";
+  let subheader = "How to read the blog? Dive into the lore to explore the regions, magic, and races of Astalor, or plunge directly into the adventure, choosing to unravel the lore at your own pace later on.";
   if (language === "es") {
-    subheader = "¿Interesado en contratarme para trabajo freelance?, ¿Buscas una asociación cooperativa?, ¿O simplemente deseas participar en una discusión interesante? Siempre estoy abierto a la conversación - ¡Conectemos!";
+    subheader = "¿Cómo leer el blog? Sumérgete en la mitología para explorar las regiones, la magia y las razas de Astalor, o comienza directamente con la aventura, optando por desentrañar la mitología a tu propio ritmo más adelante.";
   }
 
   return (
     <Layout {...props}>
-      <Seo title='Contact' />
+      <Seo title='Begin' />
       <Divider />
       <Stack>
         <Main>
-        <PageTitle
-            header={header}
-            subheader={subheader}
-          />
+          <PageTitle header={header} subheader={subheader} />
           <Divider />
-          <ContactForm />
+          <img src="https://i.imgur.com/7hDFuhb.png" alt="Wellcome to Drusniel" />
         </Main>
-        <Sidebar>
-          <Commitment />
-          <Divider />
-          <ContactInfo />
-        </Sidebar>
       </Stack>
     </Layout>
   )
