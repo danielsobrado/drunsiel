@@ -1,0 +1,31 @@
+{
+  "name": "Zephris",
+  "title": "The Tempestuous Balance",
+  "titlees": "El Equilibrio Tempestuoso",
+  "description": "Zephris, the Tempestuous Balance, is a dualistic deity who embodies the ever-changing nature of the skies and the seas. They are the calm before the storm and the stillness after the waves have crashed upon the shore. Zephris's influence can be felt in the gentle breeze that carries a ship to its destination and the raging hurricane that destroys everything in its path. Their followers understand that life is a delicate balance between creation and destruction, and they strive to find harmony amidst the chaos.",
+  "descriptiones": "Zephris, el Equilibrio Tempestuoso, es una deidad dualista que encarna la naturaleza siempre cambiante de los cielos y los mares. Son la calma antes de la tormenta y la quietud después de que las olas se han estrellado contra la orilla. La influencia de Zephris se puede sentir en la suave brisa que lleva un barco a su destino y en el huracán furioso que destruye todo a su paso. Sus seguidores entienden que la vida es un delicado equilibrio entre la creación y la destrucción, y se esfuerzan por encontrar la armonía en medio del caos.",
+  "thumbnail": "zephris.png",
+  "god": true,
+  "social": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/drusniel/"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/twitter"
+    },
+    {
+      "name": "Website",
+      "url": "https://danielsobrado.com"
+    }
+  ],
+  "skills": [
+    "Wizard",
+    "Dark magic"
+  ],
+  "skillses": [
+    "Mago",
+    "Magia Oscura"
+  ]
+}

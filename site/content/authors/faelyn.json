@@ -1,0 +1,31 @@
+{
+  "name": "Faelyn",
+  "title": "The Verdant Guardian",
+  "titlees": "El Guardián Verdeante",
+  "description": "Faelyn, the Verdant Guardian, is the elven deity of nature, wisdom, and harmony. His presence is felt in the gentle sway of ancient trees and the vibrant bloom of wildflowers. Faelyn is the protector of the forests and all the creatures that dwell within them, imparting his wisdom to those who seek to live in balance with the natural world. His followers are the stewards of the land, working to preserve the beauty and diversity of the wilderness for generations to come. They understand that true strength lies not in domination, but in understanding and cooperation with the forces of nature.",
+  "descriptiones": "Faelyn, el Guardián Verdeante, es la deidad élfica de la naturaleza, la sabiduría y la armonía. Su presencia se siente en el suave balanceo de los árboles antiguos y en la vibrante floración de las flores silvestres. Faelyn es el protector de los bosques y de todas las criaturas que habitan en ellos, impartiendo su sabiduría a aquellos que buscan vivir en equilibrio con el mundo natural. Sus seguidores son los administradores de la tierra, trabajando para preservar la belleza y la diversidad de la naturaleza para las generaciones venideras. Ellos entienden que la verdadera fuerza no radica en la dominación, sino en la comprensión y la cooperación con las fuerzas de la naturaleza.",
+  "thumbnail": "faelyn.png",
+  "god": true,
+  "social": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/drusniel/"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/twitter"
+    },
+    {
+      "name": "Website",
+      "url": "https://danielsobrado.com"
+    }
+  ],
+  "skills": [
+    "Skin Walker",
+    "Assassin"
+  ],
+  "skillses": [
+    "Metaforsis",
+    "Asesino"
+  ]
+}
