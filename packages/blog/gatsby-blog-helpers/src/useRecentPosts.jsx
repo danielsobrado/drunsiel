@@ -9,7 +9,7 @@ export const useRecentPosts = () => {
       query allRecentArticleQuery(
         $includeExcerpt: Boolean! = true
         $includeTimeToRead: Boolean! = true
-        $imageQuality: Int! = 75
+        $imageQuality: Int! = 85
         $language: String! = "en"
       ) {
         recentPosts: allArticle(

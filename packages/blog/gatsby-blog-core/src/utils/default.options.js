@@ -74,7 +74,7 @@ module.exports = pluginOptions => {
     'includeTableOfContents',
     true
   )
-  const imageQuality = getValue(pluginOptions, 'imageQuality', 75)
+  const imageQuality = getValue(pluginOptions, 'imageQuality', 85)
 
   const gatsbyRemarkPlugins = getValue(pluginOptions, 'gatsbyRemarkPlugins', [])
   const remarkPlugins = getValue(pluginOptions, 'remarkPlugins', [])

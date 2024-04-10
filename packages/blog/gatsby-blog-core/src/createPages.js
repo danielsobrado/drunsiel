@@ -102,7 +102,7 @@ module.exports = async ({ actions, graphql, reporter }, pluginOptions) => {
             mobileMenu,
             includeExcerpt: true,
             includeTimeToRead: true,
-            imageQuality: 75,
+            imageQuality: 85,
             language,
           },
         })
@@ -154,7 +154,7 @@ module.exports = async ({ actions, graphql, reporter }, pluginOptions) => {
             mobileMenu,
             includeExcerpt: true,
             includeTimeToRead: true,
-            imageQuality: 75,
+            imageQuality: 85,
             language,
           },
         })
@@ -206,8 +206,7 @@ module.exports = async ({ actions, graphql, reporter }, pluginOptions) => {
             mobileMenu,
             includeExcerpt: true,
             includeTimeToRead: true,
-            imageQuality: 75,
-            language,
+            imageQuality: 85
           },
         })
       })
