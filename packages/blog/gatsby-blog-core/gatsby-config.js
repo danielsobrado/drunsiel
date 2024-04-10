@@ -36,10 +36,15 @@ module.exports = options => {
           {
             resolve: 'gatsby-remark-images',
             options: {
+              plugins: [
+                `gatsby-remark-extract-image-attributes`,
+                `gatsby-remark-images`,
+                `gatsby-remark-images-insert-wrapper-attributes`
+              ],
               maxWidth: 1140,
               quality: options.imageQuality,
               showCaptions: true,
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
               disableBgImageOnAlpha: true
             }
           },

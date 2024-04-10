@@ -22,6 +22,7 @@
     "gatsby-plugin-sharp": "^5.6.0",
     "gatsby-remark-copy-linked-files": "^6.6.0",
     "gatsby-remark-embed-video": "^3.2.1",
+    "gatsby-remark-extract-image-attributes": "^1.0.7",
     "gatsby-remark-images": "^7.6.0",
     "gatsby-remark-responsive-iframe": "^6.6.0",
     "gatsby-remark-smartypants": "^6.6.0",
