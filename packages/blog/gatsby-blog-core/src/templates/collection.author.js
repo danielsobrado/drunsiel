@@ -11,7 +11,7 @@ export const pageQuery = graphql`
     $includeExcerpt: Boolean!
     $includeTimeToRead: Boolean!
     $imageQuality: Int!
-    $language: String!
+    $language: String! = "en"
   ) {
     collectionInfo: articleAuthor(slug: { eq: $slug }) {
       ...ArticleAuthor
