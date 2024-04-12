@@ -28,7 +28,6 @@ const styles = {
 
 const Posts = ({ data, ...props }) => {
   const { language } = useContext(LanguageContext);
-  console.log('LanguageContext Posts: ' + language);
 
   const featuredPosts1 = language === 'en' ? data.featuredPostsEN : data.featuredPostsES;
   const recentPosts1 = language === 'en' ? data.recentPostsEN : data.recentPostsES;
@@ -40,9 +39,9 @@ const Posts = ({ data, ...props }) => {
       TrendingNow: 'Trending Now',
     },
     es: {
-      titleLanguage: 'Noticias de Astarion',
-      OurLatestAdventures: 'Nuestras últimas aventuras',
-      TrendingNow: 'Tendencias ahora',
+      titleLanguage: 'Noticias desde Astarion',
+      OurLatestAdventures: 'Últimas aventuras',
+      TrendingNow: 'Tendencias',
     },
   };
 
@@ -51,9 +50,6 @@ const Posts = ({ data, ...props }) => {
   const { pageContext: { services = {} } = {} } = props;
   const categories = useBlogCategories();
   const sliderRef = React.useRef();
-
-  console.log('OurLatestAdventures:', OurLatestAdventures);
-  console.log('titleLanguage:', titleLanguage);
 
   // Filter featured posts by language
   const filteredFeaturedPostsNodes = featuredPosts1.nodes.filter(
@@ -72,11 +68,6 @@ const Posts = ({ data, ...props }) => {
       nodes: group.nodes.filter((post) => post.language === language),
     }))
     .filter((group) => group.nodes.length > 0);
-
-  console.log('Language:', language);
-  console.log('filtered Featured Posts:', filteredFeaturedPostsNodes);
-  console.log('filtered Recent Posts:', filteredRecentPostsNodes);
-  console.log('filtered Posts Groups:', filteredPostsGroup);
 
   return (
     <Layout {...props}>
