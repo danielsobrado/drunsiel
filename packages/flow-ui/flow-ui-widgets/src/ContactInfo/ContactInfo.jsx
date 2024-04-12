@@ -11,14 +11,14 @@ const ContactInfo = () => {
 
   const texts = {
     en: {
-      title: 'Advertise With Us',
+      title: 'Advertise Here',
       interest: 'Interested in working together?',
-      dropEmail: 'Drop an email! We will get back to you as soon as possible.',
+      dropEmail: 'Drop an email! I will get back to you as soon as possible.',
     },
     es: {
-      title: 'Anunciate con nosotros',
+      title: 'Anunciate!',
       interest: '¿Interesado en trabajar juntos?',
-      dropEmail: '¡Envíanos un correo electrónico! Nos pondremos en contacto contigo lo antes posible.',
+      dropEmail: '¡Envíame un correo electrónico! Me pondré en contacto contigo lo antes posible.',
     },
   };
 

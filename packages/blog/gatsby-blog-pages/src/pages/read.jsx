@@ -47,16 +47,16 @@ const PageContact = props => {
 
   const englishLinks = [
     { text: 'Start the adventure here', url: '/swords-and-shadows-the-awakening-of-drusniel/' },
-    { text: 'Astalor regions', url: '/regions' },
-    { text: 'Magic in Astalor', url: '/magic' },
-    { text: 'Lore', url: '/lore' },
+    { text: 'Astalor regions', url: '/discovering-the-regions-of-astalor/' },
+    { text: 'Magic in Astalor', url: '/magic-in-astalor/' },
+    { text: 'Lore', url: '/en/tag/lore/' },
   ];
 
   const spanishLinks = [
     { text: 'Comienza la aventura aquí', url: '/espadas-y-sombras-el-despertar-de-drusniel/' },
-    { text: 'Regiones de Astalor', url: '/regiones' },
-    { text: 'Magia en Astalor', url: '/magia' },
-    { text: 'Mitología', url: '/mitologia' },
+    { text: 'Regiones de Astalor', url: '/descubriendo-las-regiones-de-astalor/' },
+    { text: 'Magia en Astalor', url: '/la-magia-en-astalor/' },
+    { text: 'Historia y Mitología', url: '/es/tag/historia/' },
   ];
 
   const links = language === 'es' ? spanishLinks : englishLinks;
