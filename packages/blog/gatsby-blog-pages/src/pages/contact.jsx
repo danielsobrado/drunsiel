@@ -17,7 +17,7 @@ const PageContact = props => {
     header = "Conectemos";
   }
   
-  let subheader = "Interested in hiring us for freelance work?, looking for a cooperative partnership?, or just wanting to engage in insightful discussion? We're always open for conversation - let's connect!";
+  let subheader = "Interested in hiring me for freelance work?, looking for a cooperative partnership?, or just wanting to engage in insightful discussion? I'm always open for conversation - let's connect!";
   if (language === "es") {
     subheader = "¿Interesado en contratarme para trabajo freelance?, ¿Buscas una asociación cooperativa?, ¿O simplemente deseas participar en una discusión interesante? Siempre estoy abierto a la conversación - ¡Conectemos!";
   }

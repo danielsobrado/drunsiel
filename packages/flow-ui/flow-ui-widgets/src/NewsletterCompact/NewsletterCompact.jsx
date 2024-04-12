@@ -12,11 +12,11 @@ const NewsletterCompact = (props) => {
   const texts = {
     en: {
       title: 'Newsletter',
-      description: 'Make sure to subscribe to our newsletter and be the first to know the news.',
+      description: 'Make sure to subscribe and receive new adventures!',
     },
     es: {
       title: 'Boletín informativo',
-      description: 'Asegúrate de suscribirte a nuestro boletín y ser el primero en conocer las noticias.',
+      description: 'Asegúrate de suscribirte y recibe las últimas aventuras.',
     },
   };
 

@@ -49,12 +49,12 @@ const NewsletterExpanded = ({ simple }) => {
 
   const texts = {
     en: {
-      title: 'Subscribe to our newsletter!',
-      description: "We'll send you the best of our blog just once a month. We promise.",
+      title: 'Subscribe to receive new adventures!',
+      description: "I'll send you just adventures, no spam. I promise.",
     },
     es: {
-      title: '¡Suscríbete a nuestro boletín informativo!',
-      description: 'Te enviaremos lo mejor de nuestro blog solo una vez al mes. Lo prometemos.',
+      title: '¡Suscríbete para recibir nuevas aventuras!',
+      description: 'Te enviaré sólo aventuras, nada de spam. Te lo prometo.',
     },
   };
 
