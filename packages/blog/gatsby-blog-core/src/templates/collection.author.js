@@ -11,7 +11,7 @@ export const pageQuery = graphql`
     $includeExcerpt: Boolean!
     $includeTimeToRead: Boolean!
     $imageQuality: Int!
-    $language: String! = "en"
+    $language: String! ="en"
   ) {
     collectionInfo: articleAuthor(slug: { eq: $slug }) {
       ...ArticleAuthor
@@ -37,6 +37,7 @@ export const pageQuery = graphql`
       nodes {
         ...ArticlePreview
         ...ArticleThumbnailRegular
+        language
       }
       ...ArticlePagination
     }

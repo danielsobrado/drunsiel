@@ -206,7 +206,8 @@ module.exports = async ({ actions, graphql, reporter }, pluginOptions) => {
             mobileMenu,
             includeExcerpt: true,
             includeTimeToRead: true,
-            imageQuality: 85
+            imageQuality: 85,
+            language
           },
         })
       })

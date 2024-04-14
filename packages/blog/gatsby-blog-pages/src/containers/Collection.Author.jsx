@@ -9,8 +9,9 @@ import AuthorExpanded from '@widgets/AuthorExpanded'
 import { useContext } from 'react';
 import { LanguageContext } from '@helpers-blog/useLanguageContext';
 
-const PageCollectionAuthors = ({ data: { posts, collectionInfo }, ...props }) => {
-  const { language } = useContext(LanguageContext);
+const PageCollectionAuthors = ({ data, ...props }) => {
+  const { posts, collectionInfo } = data || {};
+  const { language: contextLanguage = 'en' } = useContext(LanguageContext) || {};
 
   const texts = {
     en: {
@@ -21,7 +22,7 @@ const PageCollectionAuthors = ({ data: { posts, collectionInfo }, ...props }) =>
     },
   };
 
-  const { pageTitle } = texts[language];
+  const { pageTitle } = texts[contextLanguage] || texts['en'];
 
   return (
     <Layout {...props}>
@@ -37,7 +38,10 @@ const PageCollectionAuthors = ({ data: { posts, collectionInfo }, ...props }) =>
           <Divider />
           {posts.nodes && (
             <CardList
-              nodes={posts.nodes}
+            nodes={posts.nodes.map(post => ({
+              ...post,
+              language: post.language || contextLanguage,
+            }))}
               variant={['horizontal-md', 'vertical']}
               columns={[1, 2, 3, 3]}
             />
@@ -49,7 +53,7 @@ const PageCollectionAuthors = ({ data: { posts, collectionInfo }, ...props }) =>
         <Pagination
           {...posts.pageInfo}
           {...collectionInfo}
-          pathPrefix={`/${language}${collectionInfo.slug}`}
+          pathPrefix={`/${contextLanguage}${collectionInfo.slug}`}
         />
       </PreFooter>
     </Layout>

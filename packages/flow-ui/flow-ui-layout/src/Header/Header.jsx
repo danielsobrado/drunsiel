@@ -52,7 +52,7 @@ export const Header = ({ children }) => {
           </Box>
           <Box sx={styles.searchContainer}>{algolia && <Search />}</Box>
           <Box sx={styles.menuContainer}>
-            <HeaderMenu mobileMenu={mobileMenu} />
+            <HeaderMenu mobileMenu={mobileMenu} isPostPage={true} />
           </Box>
           <Box sx={styles.switchContainer}>
             {darkMode && <HeaderColorMode />}

@@ -29,6 +29,7 @@ module.exports = async (
           limit: collectionPostsPerPage,
           skip: i * collectionPostsPerPage,
           collectionType: slugField.slice(0, slugField.indexOf('_')),
+          language,
           ...pageContextOptions
         }
       })
