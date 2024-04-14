@@ -30,7 +30,7 @@ export const pageQuery = graphql`
         language: { eq: $language }
         id: { ne: $id }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: 6
     ) @include(if: $hasTags) {
       nodes {
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
         id: { ne: $id }
         language: { eq: $language }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: 6
     ) @include(if: $hasTags) {
       nodes {
@@ -62,7 +62,7 @@ export const pageQuery = graphql`
         language: { eq: $language }
         id: { ne: $id }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: 6
     ) {
       nodes {

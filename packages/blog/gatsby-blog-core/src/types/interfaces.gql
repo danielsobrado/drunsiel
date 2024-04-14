@@ -23,6 +23,7 @@ interface Article implements Node {
   thumbnail: ImageAsset
   tableOfContents(maxDepth: Int = 6): JSON
   draft: Boolean
+  order: String!
 }
 
 ############################################

@@ -14,7 +14,7 @@ export const useRecentPosts = () => {
       ) {
         recentPosts: allArticle(
           filter: { private: { ne: true }, draft: { ne: true }, language: { eq: $language } }
-          sort: { date: DESC }
+          sort: { date: ASC }
           limit: 6
         ) {
           nodes {

@@ -23,8 +23,8 @@ export const pageQuery = graphql`
   ) {
     posts: allArticle(
       filter: { private: { ne: true }, draft: { ne: true } }
-      sort: { date: DESC }
-      limit: 1000
+      sort: { date: ASC }
+      limit: 2000
     ) {
       group(field: { category: { name: SELECT } }, limit: 10) {
         categoryName: fieldValue
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
         featured: { eq: true }
         language: { eq: "en" }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: 10
     ) {
       nodes {
@@ -61,7 +61,7 @@ export const pageQuery = graphql`
         featured: { eq: true }
         language: { eq: "es" }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: 10
     ) {
       nodes {
@@ -76,7 +76,7 @@ export const pageQuery = graphql`
         draft: { ne: true }
         language: { eq: "en" }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: 10
     ) {
       nodes {
@@ -91,7 +91,7 @@ export const pageQuery = graphql`
         draft: { ne: true }
         language: { eq: "es" }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: 10
     ) {
       nodes {
@@ -102,7 +102,7 @@ export const pageQuery = graphql`
     }
     paginatedPosts: allArticle(
       filter: { private: { ne: true }, draft: { ne: true } }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: $limit
       skip: $skip
     ) @include(if: $paginatePostsPage) {

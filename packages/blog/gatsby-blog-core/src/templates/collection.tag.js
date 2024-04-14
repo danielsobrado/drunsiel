@@ -25,7 +25,7 @@ export const pageQuery = graphql`
         tags: { elemMatch: { slug: { eq: $slug } } }
         language: { eq: $language }
       }
-      sort: { date: DESC }
+      sort: { date: ASC }
       limit: $limit
       skip: $skip
     ) {
