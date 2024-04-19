@@ -54,7 +54,7 @@ module.exports = {
     footerMenu: [
       {
         title: 'Quick Links',
-        items: [
+        items: [    
           {
             name: 'Advertise with us',
             slug: '/contact'
